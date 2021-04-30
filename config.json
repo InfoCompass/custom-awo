@@ -1,6 +1,6 @@
 {
-                "backendLocation":      "https://api.awo.place-making.org",
-                "statsLocation":        "https://stats.awo.place-making.org",
+                "backendLocation":      "https://api.seniorennetz.berlin",
+                "statsLocation":        "https://stats.seniorennetz.berlin",
                 "frontendLocation":     "https://awo.place-making.org",
                 "title":                "Seniorennetz",
                 "disableLists":         true,
@@ -30,16 +30,6 @@
 				"facebook": true,
 				"whatsapp": true,
 				"email": true
-		},                
-                "webfonts": [
-                        {
-                                "fontFamily":   "myriad-pro",
-                                "url":          "https://use.typekit.net/ylt7opr.css",
-                                "consent":      {
-                                                        "server":       "typekit.net, USA",
-                                                        "default":      true
-                                                }
-                        }
-                ]
+		}               
 }
 
