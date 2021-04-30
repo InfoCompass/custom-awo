@@ -1,0 +1,29 @@
+<header 
+	class 		= "image-home"
+>
+	<!-- <h2> <span class = "bg-0" ng-bind-html = "('INTERFACE.CLAIM' | translate)"></span></h2> -->
+	<ic-carousel
+		ic-images  		= "['image-SMB_01','image-SMB_02', 'image-SMB_03', 'image-SMB_04']"
+		ic-auto-turn	= "20000"
+	>
+	</ic-carousel>
+</header>	
+
+<article class = "search">	
+	
+	<ic-search 
+		ic-button-label = "ic.layout.mode.name != 'XS' ? ('INTERFACE.SEARCH' | translate) : true"
+	>
+	</ic-search>
+
+	<div ng-bind-html = "('CONTENT.HOME' | translate | markdown)">
+
+	</div>
+
+</article>
+
+
+<section>
+	<ic-tiles class = "tiles">
+	</ic-tiles>
+</section>

@@ -1,0 +1,179 @@
+
+
+<button 
+	class 		= "icon icon-interface-close large close"
+	ng-click	= "ic.overlays.toggle()" 
+>
+</button>
+
+<h2 ng-if = "icExpand == 'categories'">{{'INTERFACE.CATEGORIES' | translate}}</h2>
+
+<h2 ng-if = "icExpand != 'categories'">{{'INTERFACE.TAGS_%s' | fill : icExpand | translate}}</h2>	
+
+<input 
+	ng-if		= "icExpand == 'languages'"
+	type 		= "text" 
+	ng-model 	= "filter[icExpand]" 
+	placeholder = "{{'INTERFACE.FILTER' | translate }}" 
+/>
+
+<ul 
+	class 		= "bg-0"
+	ng-if		= "icExpand == 'categories'"
+>
+	<li
+		ng-if		= "true"
+		class 		= "icon icon-interface-radio"
+		ng-class	= "{'bg-3 white checked':ic.filterConfig.categoryCleared()}"
+		ng-click	= "ic.filterConfig.clearCategory()" 
+		ic-touch-me	= "true"
+	>
+		<div>{{'INTERFACE.FILTER_ANY' | translate}}</div>
+	</li>
+
+	<li
+		ng-repeat 	= "category in ic.taxonomy.categories | orderBy : ic.utils.evalItems('item.name.substr(0,4) == \'misc\' ? null : (\'CATEGORIES.%s\' | fill : item.name | translate)')"
+		ng-if		= "!filter || ('CATEGORIES.%s' | fill : category.name | translate | match : filter[icExpand])"
+		class		= "icon icon-category-{{::category.name}} bg-0"
+		ic-button	= "{active:ic.filterConfig.categoryActive(category.name), disabled: !ic.itemStorage.currentStats.altMatches[category.name]}"
+		ng-class	= "{'bg-3 white':active, disabled: disabled}"
+		ng-click	= "!disabled && ic.filterConfig.toggleCategory(category.name, undefined, true);"
+		ic-touch-me	= "!disabled"
+	>
+
+		<div>{{'CATEGORIES.%s' | fill : category.name | translate}}</div>
+		
+		<span 
+			class 		= "bubble shade-light "
+			ng-class	= "{'col-2': active, 'col-1': !active}"
+			ng-if 		= "!disabled"
+		>
+			<span>
+				{{ic.itemStorage.currentStats.altMatches[category.name]}}
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.altMatches[category.name] != ic.itemStorage.currentStats.totals[category.name]">
+				/
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.altMatches[category.name] != ic.itemStorage.currentStats.totals[category.name]">
+				{{ic.itemStorage.currentStats.totals[category.name]}}
+			</span>
+		</span>
+	</li>
+</ul>
+
+
+
+<ul 
+		class 		= "bg-0"
+		ng-if		= "icExpand == key && ['districts'].indexOf(key) == -1"
+		ng-repeat	= "(key, tagGroup) in ic.taxonomy.tags"
+	>
+	<li
+		class 		= "icon icon-interface-radio bg-0"
+		ng-class	= "{'bg-3 white checked':ic.filterConfig.unsortedTagCleared(tagGroup)}"
+		ng-click	= "ic.filterConfig.clearUnsortedTag(tagGroup)" 
+		ic-touch-me	= "true"
+	>
+		<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
+	</li>
+	<li
+		ng-repeat 	= "tag in tagGroup | orderBy : ic.utils.evalItems('item.substr(0,4) == \'misc\' ? null :(\'UNSORTED_TAGS.%s\' | fill : item | translate)')"
+		ng-if		= "!filter || ('UNSORTED_TAGS.%s' | fill : tag | translate | match : filter[icExpand])"
+		class		= "icon icon-interface-checkbox"
+		ic-button	= "{active:ic.filterConfig.unsortedTagActive(tag), checked:ic.filterConfig.unsortedTagActive(tag), disabled: !ic.itemStorage.currentStats.subMatches[tag]}"
+		ng-class	= "{active:active, checked:active, disabled: disabled}"
+		ng-click	= "!disabled && ic.filterConfig.toggleUnsortedTag(tag)"
+		ic-touch-me	= "!disabled"
+	>
+		<div>{{'UNSORTED_TAGS.%s' | fill : tag | translate }}</div>
+		<span 
+			class 		= "bubble shade-light col-1"
+			ng-if 		= "!disabled"
+		>
+			<span>
+				{{ic.itemStorage.currentStats.subMatches[tag]}}
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches[tag] != ic.itemStorage.currentStats.totals[tag]">
+				/
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches[tag] != ic.itemStorage.currentStats.totals[tag]">
+				{{ic.itemStorage.currentStats.totals[tag]}}
+			</span>
+		</span>
+	</li>
+</ul>
+
+
+<ul 
+		class 		= "bg-0"
+		ng-if		= "icExpand == 'districts'"		
+	>
+	<li
+		class 		= "icon icon-interface-radio"
+		ng-class	= "{'bg-3 white checked':ic.filterConfig.unsortedTagCleared(ic.taxonomy.tags.districts)}"
+		ng-click	= "ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.districts)" 
+		ic-touch-me	= "true"
+	>
+		<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
+	</li>
+	<li
+		ng-repeat 	= "tag in ic.taxonomy.tags.districts | orderBy : ic.utils.evalItems('item.substr(0,4) == \'misc\' ? null :(\'UNSORTED_TAGS.%s\' | fill : item | translate)')"
+		ng-if		= "!filter || ('UNSORTED_TAGS.%s' | fill : tag | translate | match : filter[icExpand])"
+		class		= "icon icon-interface-radio"
+		ic-button	= "{active:ic.filterConfig.unsortedTagActive(tag), checked:ic.filterConfig.unsortedTagActive(tag)}"
+		ng-class	= "{active:active, checked:active, disabled: disabled}"
+		ng-click	= "!disabled && (ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.districts).toggleUnsortedTag(tag))"
+		ic-touch-me	= "!disabled"
+	>
+		<div>{{'UNSORTED_TAGS.%s' | fill : tag | translate }}</div>
+		<span 
+			class 		= "bubble shade-light col-1"
+			ng-if 		= "!disabled"
+		>
+			<span>
+				{{ic.itemStorage.currentStats.totals[tag]}}
+			</span>
+		</span>
+	</li>
+</ul>
+
+
+
+<ul 
+		class 		= "bg-0"
+		ng-if		= "icExpand == 'sponsors'"
+	>
+	<li
+		class 		= "icon icon-interface-all"
+		ng-class	= "{'bg-3 white':ic.filterConfig.unsortedTagCleared(ic.taxonomy.tags.sponsors)}"
+		ng-click	= "ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.sponsors)" 
+		ic-touch-me	= "true"
+	>
+		<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
+	</li>
+	<li
+		ng-repeat 	= "tag in ic.taxonomy.tags.sponsors | orderBy : ic.utils.evalItems('item.substr(0,4) == \'misc\' ? null :(\'UNSORTED_TAGS.%s\' | fill : item | translate)')"
+		ng-if		= "['senias_partin', 'senias_akrom', 'senias_intlot', 'senias_mifl','ehap']. indexOf(tag) != -1 && (!filter || ('UNSORTED_TAGS.%s' | fill : tag | translate | match : filter[icExpand]))"
+		class		= "icon icon-interface-checkbox"
+		ic-button	= "{active:ic.filterConfig.unsortedTagActive(tag), checked:ic.filterConfig.unsortedTagActive(tag), disabled: !ic.itemStorage.currentStats.subMatches[tag]}"
+		ng-class	= "{active:active, checked:active, disabled: disabled}"
+		ng-click	= "!disabled && ic.filterConfig.toggleUnsortedTag(tag)"
+		ic-touch-me	= "!disabled"
+	>
+		<div>{{'UNSORTED_TAGS.%s' | fill : tag | translate }}</div>
+		<span 
+			class 		= "bubble shade-light col-1"
+			ng-if 		= "!disabled"
+		>
+			<span>
+				{{ic.itemStorage.currentStats.subMatches[tag]}}
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches[tag] != ic.itemStorage.currentStats.totals[tag]">
+				/
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches[tag] != ic.itemStorage.currentStats.totals[tag]">
+				{{ic.itemStorage.currentStats.totals[tag]}}
+			</span>
+		</span>
+	</li>
+</ul>

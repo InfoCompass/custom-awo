@@ -1,0 +1,15 @@
+:root{
+	--primary-color:				#084c8e;
+	--secondary-color:				var(--primary-color);
+	--primary-background-color:		#FFFFFF;
+	--secondary-background-color:	#e6e6e6;
+	--plain-color:					#949494;
+
+	--dark-text-color:				#222;	
+	--light-text-color:				#fff;
+	--plain-text-color:				#666;
+
+	--neutral-color:				#949494;
+}
+
+
