@@ -1,106 +1,189 @@
 (function(exports){
 
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
 	exports.categories = [
+
 		{
-			name:	'health',				//Gesundheit
+			name:	'encounters',			//Begegnung
 			colors:	['#832A67'],
-			tags:	[]
+			tags:	[
+						'encounters_games',			// Gemeinsames Spielen
+						'encounters_dining',		// Essen und Trinken
+						'encounters_tea',			// Kaffeetrinken und Beisammensein
+						'encounters_groups',		// Feste Gruppentreffen
+						'encounters_conversations',	// Offene Gesprächskreise
+						'encounters_tanztee',		// Tanztee
+						'encounters_dating',		// Kennenlerntreffen (Dating)
+						'encounters_gardening'		// Gemeinsames Gärtnern
+
+					]
 		},
+
 		{
 			name:	'counseling',			//Beratung
 			colors:	['#60409D'],
 			tags: 	[
-						'financial_counseling',	//Schuldner- und Sozialberatung
-						'legal_counseling',		//Rechtliche Beratung
-						'offender_services',	//Straffälligenhilfe
+						'counseling_social', 	// Sozialberatung
+						'counseling_debt', 		// Schuldnerberatung
+						'counseling_tenant',	// Mieterberatung
+						'counseling_housing',	// Wohnberatung
+						'counseling_migration',	// Migrationsberatung
+						'counseling_pension',	// Rentenberatung
+						'counseling_police'		// Polizeiberatung
 					]
-		},
-		{
-			name:	'sports',				//Bewegung und Sport
-			colors:	['#31AAE2'],
-			tags:	[]
-		},
-		{
-			name:	'education',			//Bildung und Sprache
-			colors:	['#9f67e8'],
-			tags:	[],
-		},
-		{
-			name:	'volunteer_work',		//Freiwilliges Engagement
-			colors:	['#ff9900'],
-			tags: 	[]
-		},
-		{
-			name:	'addiction',			//Sucht
-			colors:	['#46b4b9'],
-			tags: 	[]
-		},
-		{
-			name:	'labour',				//Arbeit und Beschäftigung
-			colors:	['#ffc300'],
-			tags: 	[]
-		},
-		{
-			name:	'neighborhood',			//Stadtteilarbeit und Nachbarschaft
-			colors:	['#729052'],
-			tags: 	[]
-		},
-		{
-			name:	'arts',					//Kreativität und Kunst
-			colors:	['#ec465a'],
-			tags: 	[]
-		},
-		{
-			name:	'victim_support',		//Opferhilfe
-			colors:	['#00b33a'],
-			tags: 	[]
-		},
-		{
-			name:	'care',					//Pflege
-			colors:	['#00b0c6'],
-			tags: 	[]
-		},
-		{
-			name:	'self_help',			//Selbsthilfe
-			colors:	['#fb6ac2'],
-			tags: 	[]
-		},
-		{
-			name:	'housing',				//Wohnen
-			colors:	['#E36E00'],
-			tags: 	[]
-		},
-		{
-			name:	'recreation',			//Freizeit
-			colors:	['#0eb2ff'],
-			tags:	[]
 		},
 
 		{
-			name:	'hospice',				//Hospiz
+			name:	'exercise',				//Bewegung_und_Gesundheit
+			colors:	['#31AAE2'],
+			tags:	[
+						'exercise_motor',			// Bewegungsangebote
+						'exercise_dance',			// Tanzgruppe
+						'exercise_walking',			// Spazieren gehen und wandern
+						'exercise_self_help',		// Selbsthilfegruppen
+						'exercise_memory',			// Gedächtnistraining
+						'exercise_parcours',		// Aktivplätze und Bewegungsparcours
+						'exercise_fall_prevention'	// Sturzprävention
+
+					]
+		},
+
+		{
+			name:	'intercultural',		//Sprachen_und_Interkulturelles
+			colors:	['#9f67e8'],
+			tags:	[
+						'intercultural_language_course',	// Sprachkurse
+						'intercultural_language_specific', 	// Sprachspezifische Angebote
+						'intercultural_encounters'			// Interkulturelle Treffen
+
+					],
+		},
+
+		{
+	
+			name:	'arts',					//Kreativität und Kunst
+			colors:	['#ec465a'],
+			tags: 	[
+						'arts_paint_craft', // Mal- und Bastelkurse
+						'arts_choir', 		// Singen und Chor
+						'arts_sewing', 		// Nähen und Schneidern
+						'arts_cosmetic',	// Kosmetik
+						'arts_misc'			// Andere künstlerische Angebote
+					]
+		},
+
+		{
+			name:	'culture',				//Gesellschaft_Kultur_Politik
+			colors:	['#ff9900'],
+			tags: 	[
+						'culture_trips',					// Ausflüge und Exkursionen
+						'culture_meetings',					// Informationstreffen
+						'culture_music_theatre_film',		// Musik, Theater, Film
+						'culture_literature', 				// Literatur
+						'culture_politics', 				// Politische Themen
+						'culture_culture',					// Kulturelle Themen
+						'culture_relegion',					// Religiöse Themen
+						'culture_environment',				// Klima, Natur und Umwelt
+						'culture_senior_represantatives'	// Sprechstunden der Seniorenvertretungen
+					]
+		},
+
+		{
+			name:	'support',				//Alltagshilfen_Ehrenamt
+			colors:	['#46b4b9'],
+			tags: 	[
+						'open_lunch',			// Offener Mittagstisch
+						'meals_on_wheels',		// Essen auf Rädern
+						'give_away_shops',		// Kleiderkammer, Bücherbasar
+						'neighborhood_support', // Einkaufshilfen und Nachbarschaftshilfen
+						'visiting_service',		// Besuchsdienste
+						'repair_assistance',	// Reparaturhilfe
+						'helpline', 			// Telefonseelsorge
+						'public_restrooms'		// Öffentliche Toiletten
+					]
+		},
+
+		{
+			name:	'it',					//Computer_und_Technik
+			colors:	['#ffc300'],
+			tags: 	[
+						'it_courses',	// Kurse und Lernmöglichkeiten
+						'it_seniors',	// Technik und Alter
+						'it_lending',	// Leihmöglichkeiten von Tablets und Smartphones
+						'it_free_wifi'	// Kostenlose WLAN - Hotspots
+					]
+		},
+
+		{
+			name:	'housing',				//Wohnen
+			colors:	['#E36E00'],
+			tags: 	[
+						'housing_assisted', 	// Wohnen mit Service
+						'housing_smart',		// Smart Wohnen
+						'housing_project'		// Wohnprojekte
+
+			]
+		},
+
+		{
+			name:	'care',					//Rund_um_die_Pflege	
+			colors:	['#00b0c6'],
+			tags: 	[
+						'care_consulting',				// Pflegeberatung
+						'care_in_facility',				// Angebote in Pflegeeinrichtungen
+						'care_services',				// Betreuungsangebote
+						'care_relief_everyday_life',	// Entlastung im Alltag
+						'care_relief_caregivers',		// Entlastung Pflegender
+						'care_dementia'					// Angebote für Demenzkranke und deren Angehörige
+
+			]
+		},
+
+		{
+			name:	'misc_category',					//Sonstige_Angebote
 			colors:	['#008671'],
 			tags: 	[]
 		},
 
 	]
 
-	exports.types = []
+	exports.types = [
+		{
+			name:		'location',
+			colors:		['#f27020', '#f27020'],
+		},		
+		{
+			name:		'service',
+			colors:		['#fec300', '#fec300'],
+		},
+		{
+			name:		'event',
+			colors:		['#62a7d5', '#62a7d5'],
+		}
+	]
 
 	exports.tags = {
 
 		target_groups: [
-			'senior_citizens',			//Ältere Menschen
-			'families',					//Familien
-			'women',					//Frauen
-			'young',					//Kinder und Jugendliche
-			'queer',					//Queere Menschen
-			'men',						//Männer
-			'disability_background',	//Menschen mit Behinderung
-			'refugee_background',		//Menschen mit Fluchtgeschichte
-			'migration_background',		//Menschen mit Migrationsgeschichte
-			'houseless'					//Wohnungs-und obdachlose Menschen
+			'migrates', 		//Migrant*innen
+			'women', 			//Frauen
+			'men',				//Männer
+			'lgtbiq', 			//LSBTI*
+			'young_and_old',	//Jung und Alt
 		],	
+
 		districts: [
 			'mitte',
 			'friedrichshain_kreuzberg',
@@ -114,6 +197,22 @@
 			'marzahn_hellersdorf',
 			'lichtenberg',
 			'reinickendorf'
+		],
+
+		institution_type: [
+			'meeting_place',			//Begegnungsstätte
+			'multigenerational_house', 	//Mehrgenerationenhaus
+			'district_center',			//Stadtteilzentrum
+			'family_center',			//Famielienzentrum
+			'counseling_center',		//Beratungsstelle
+			'misc_institution' 			//andere
+		],
+
+		accessibility:[				
+			'wheelchair_accessible_wc',	//Rollstuhlgerechtes WC
+			'accessible_parking',		//Parkplatz für Menschen mit Behinderung
+			'wheelchair_accessible',	//Zugang rollstuhlgerecht
+			'elevator_present',			//Fahrstuhl vorhanden			
 		],
 
 		languages: [
@@ -173,67 +272,12 @@
 			'wolof',
 		],
 
-		accessibility:[				
-			
-		],
 
-
-		institution_type: [
-			
-		],
-
-		service_type: [
-			
+		misc :[
+			'free_wifi', 		// Kostenlose W-Lan-Nutzung
+			'free_pc_usage',	// Kostenlose PC Nutzung
 		]
 
-		// service_times: [
-		// 	'morning',					//Vormittags
-		// 	'afternoon',				//Nachmittags
-		// 	'evening',					//Abends
-		// 	'weekend',					//Wochenende
-		// 	'daily',					//Täglich
-		// 	'weekly',					//Wöchentlich
-		// 	'monthly',					//Monatlich
-		// 	'by_arrangement'			//Nach Absprache
-		// ]
-
-
-		// sponsors:[
-		// 	'senias',
-		// 	'senias_partin',
-		// 	'senias_akrom',
-		// 	'senias_intlot',
-		// 	'senias_msd',
-		// 	'senias_mifl',
-		// 	'senbjf',
-		// 	'jobcenter',
-		// 	'bamf_mbe',
-		// 	'bamf_jmd',
-		// 	'amif',
-		// 	'iq',
-		// 	'senjustva',
-		// 	'sengpg',
-		// 	'ba_charlottenburg_wilmersdorf',
-		// 	'ba_friedrichshain_kreuzberg',
-		// 	'ba_lichtenberg',
-		// 	'ba_marzahn_hellersdorf',
-		// 	'ba_mitte',
-		// 	'ba_neukölln',
-		// 	'ba_pankow',
-		// 	'ba_reinickendorf',
-		// 	'ba_spandau',
-		// 	'ba_steglitz_zehlendorf',
-		// 	'ba_tempelhof_schoeneberg',
-		// 	'ba_treptow_koepenik',
-		// 	'bmfsfj',
-		// 	'bmas',
-		// 	'bmi',
-		// 	'bzga',
-		// 	'ehap',
-		// 	'esf',
-		// 	'lotto',
-		// 	'aktion_mensch'
-		// ]
 	}
 
 
