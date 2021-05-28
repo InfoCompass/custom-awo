@@ -73,7 +73,7 @@
 
 		{
 	
-			name:	'arts',					//Kreativität und Kunst
+			name:	'arts',					//Kunst und Kreativität
 			colors:	['#ec465a'],
 			tags: 	[
 						'arts_paint_craft', // Mal- und Bastelkurse
@@ -104,14 +104,14 @@
 			name:	'support',				//Alltagshilfen_Ehrenamt
 			colors:	['#46b4b9'],
 			tags: 	[
-						'open_lunch',			// Offener Mittagstisch
-						'meals_on_wheels',		// Essen auf Rädern
-						'give_away_shops',		// Kleiderkammer, Bücherbasar
-						'neighborhood_support', // Einkaufshilfen und Nachbarschaftshilfen
-						'visiting_service',		// Besuchsdienste
-						'repair_assistance',	// Reparaturhilfe
-						'helpline', 			// Telefonseelsorge
-						'public_restrooms'		// Öffentliche Toiletten
+						'support_open_lunch',			// Offener Mittagstisch
+						'support_meals_on_wheels',		// Essen auf Rädern
+						'support_give_away',			// Kleiderkammer, Bücherbasar
+						'support_neighborhood', 		// Einkaufshilfen und Nachbarschaftshilfen
+						'support_visiting_service',		// Besuchsdienste
+						'support_repairs',				// Reparaturhilfe
+						'support_helpline', 			// Telefonseelsorge
+						'support_public_restrooms'		// Öffentliche Toiletten
 					]
 		},
 
@@ -177,34 +177,20 @@
 	exports.tags = {
 
 		target_groups: [
-			'migrates', 		//Migrant*innen
+			'migrants', 		//Migrant*innen
 			'women', 			//Frauen
 			'men',				//Männer
 			'lgtbiq', 			//LSBTI*
 			'young_and_old',	//Jung und Alt
 		],	
 
-		districts: [
-			'mitte',
-			'friedrichshain_kreuzberg',
-			'pankow',
-			'charlottenburg_wilmersdorf',
-			'spandau',
-			'steglitz_zehlendorf',
-			'tempelhof_schoeneberg',
-			'neukoelln',
-			'treptow_koepenik',
-			'marzahn_hellersdorf',
-			'lichtenberg',
-			'reinickendorf'
-		],
-
 		institution_type: [
 			'meeting_place',			//Begegnungsstätte
 			'multigenerational_house', 	//Mehrgenerationenhaus
 			'district_center',			//Stadtteilzentrum
-			'family_center',			//Famielienzentrum
+			'family_center',			//Familienzentrum
 			'counseling_center',		//Beratungsstelle
+			'neighborhood_center',		//Nachbarschaftstreff
 			'misc_institution' 			//andere
 		],
 
@@ -216,66 +202,66 @@
 		],
 
 		languages: [
-			'albanian',
-			'amharic',
-			'aramaic',
-			'arabic',
-			'armenian',
-			'azerbaijani',
-			'bengali',
-			'bulgarian',
-			'chechen',
-			'chinese',
-			'creole',
-			'dari',
-			'dutch',
-			'english',
-			'farsi',
-			'french',
-			'greek',
-			'hebrew',
-			'hindu',
-			'hungarian',
-			'italian',
-			'japanese',
-			'kikuyu',
-			'korean',
-			'kurdish',
-			'laz',
-			'lithuanian',
-			'luo',
-			'macedonian',
-			'montenegrin',
-			'nepali',
-			'oromo',
-			'pashto',
-			'polish',
-			'portuguese',
-			'punjabi',
-			'romani',
-			'romanian',
-			'russian',
-			'slovene',
-			'serbian_croatian',
-			'spanish',
-			'suomi',
-			'swahili',
-			'tajiki',
-			'thai',
-			'tigrinya',
-			'turkish',
-			'turkmen',
-			'ukranian',
-			'urdu',
-			'uzbek',
-			'vietnamese',
-			'wolof',
+			'albanian', 		//	Albanisch
+			'amharic', 			//	Amharisch
+			'arabic', 			//	Arabisch
+			'aramaic', 			//	Aramäisch
+			'armenian', 		//	Armenisch
+			'azerbaijani', 		//	Aserbaidschanisch
+			'bengali', 			//	Bengali
+			'bulgarian', 		//	Bulgarisch
+			'chechen', 			//	Tschetschenisch
+			'chinese', 			//	Chinesisch
+			'creole', 			//	Kreolisch
+			'dari', 			//	Dari
+			'dutch', 			//	Niederländisch
+			'english', 			//	Englisch
+			'farsi', 			//	Farsi
+			'french', 			//	Französisch
+			'greek',			//	Griechisch
+			'hebrew', 			//	Hebräisch
+			'hindu', 			//	Hindi
+			'hungarian', 		//	Ungarisch
+			'italian', 			//	Italienisch
+			'japanese', 		//	Japanisch
+			'kikuyu', 			//	Kikuyu
+			'korean', 			//	Koreanisch
+			'kurdish', 			//	Kurdisch
+			'laz', 				//	Lasisch
+			'lithuanian', 		//	Litauisch
+			'luo', 				//	Luo
+			'macedonian', 		//	Mazedonisch
+			'montenegrin', 		//	Montenegrinisch
+			'nepali', 			//	Nepali
+			'oromo', 			//	Oromo
+			'pashto',	 		//	Paschtu
+			'polish', 			//	Polnisch
+			'portuguese', 		//	Portugiesisch
+			'punjabi', 			//	Punjabi
+			'romani', 			//	Romanes
+			'romanian', 		//	Rumänisch
+			'russian', 			//	Russisch
+			'serbian_croatian', //	Bosnisch/Kroatisch/Serbisch
+			'slovene', 			//	Slowenisch
+			'spanish', 			//	Spanisch
+			'suomi', 			//	Finnisch
+			'swahili',			//	Kisuaheli
+			'tajiki', 			//	Tadschikisch
+			'thai', 			//	Thailändisch
+			'tigrinya', 		//	Tigrinya
+			'turkish', 			//	Türkisch
+			'turkmen', 			//	Turkmenisch
+			'ukranian', 		//	Ukrainisch
+			'urdu', 			//	Urdu
+			'uzbek', 			//	Usbekisch
+			'vietnamese', 		//	Vietnamesisch
+			'wolof',			//	Wolof
 		],
 
 
 		misc :[
-			'free_wifi', 		// Kostenlose W-Lan-Nutzung
-			'free_pc_usage',	// Kostenlose PC Nutzung
+			'free_wifi_usage', 		// Kostenlose W-Lan-Nutzung
+			'free_pc_usage',		// Kostenlose PC Nutzung
 		]
 
 	}

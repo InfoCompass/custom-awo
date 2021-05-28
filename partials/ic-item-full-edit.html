@@ -183,6 +183,67 @@
 
 	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
 
+	<article >
+		<div> <!-- spacer --> </div>
+		<div>
+			<h4> {{'ITEMS.DISTRICTS' | translate}}</h4>
+
+			<ic-item-property-edit
+				ic-item						= "icItem"
+				ic-type						= "array"
+				ic-translation-key			= "DISTRICTS"
+				ic-options					= "ic.taxonomy.lor | mapToKey: 'tag' | preventLoop"
+				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
+				ic-allow-multiple-choices	= "true"
+				ic-key						= "tags"
+			></ic-item-property-edit>
+
+		</div>
+	</article>
+
+
+	<article >
+		<div> <!-- spacer --> </div>
+		<div>
+			<h4> {{'ITEMS.PRG' | translate}}</h4>
+
+			<ic-item-property-edit
+				ic-item						= "icItem"
+				ic-type						= "array"
+				ic-translation-key			= "PRG"
+				ic-options					= "ic.taxonomy.lor | filterByKey: 'tag' : icEdit.tags | mapToKey: 'pgr' | flat | mapToKey: 'tag' | preventLoop"
+				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
+				ic-allow-multiple-choices	= "true"
+				ic-key						= "tags"
+			></ic-item-property-edit>
+
+		</div>
+	</article>
+
+
+
+	<article >
+		<div> <!-- spacer --> </div>
+		<div>
+			<h4> {{'ITEMS.BZR' | translate}}</h4>
+
+			<ic-item-property-edit
+				ic-item						= "icItem"
+				ic-type						= "array"
+				ic-translation-key			= "BZR"
+				ic-options					= "ic.taxonomy.lor | filterByKey: 'tag' : icEdit.tags | mapToKey: 'pgr' | flat | filterByKey: 'tag' : icEdit.tags | mapToKey: 'bzr'| flat | mapToKey: 'tag' | preventLoop"
+				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
+				ic-allow-multiple-choices	= "true"
+				ic-key						= "tags"
+			></ic-item-property-edit>
+
+		</div>
+	</article>
+
+
+
+	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
+
 
 	<div>
 		<div><div class = "icon icon-property-location"></div></div>
@@ -296,12 +357,12 @@
 	<article>
 		<div> <!-- spacer --> </div>
 		<div>
-			<h4> {{'ITEMS.RESPONSIBLE' | translate}}</h4>
+			<h4> {{'ITEMS.RESPONSIBLE_INSTITUTION' | translate}}</h4>
 
 			<ic-item-property-edit
 				ic-item					= "icItem"
 				ic-type 				= "string"
-				ic-key					= "responsible"
+				ic-key					= "responsibleInstitution"
 			></ic-item-property-edit>
 			
 		</div>
@@ -310,24 +371,27 @@
 	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
 
 
-		<!-- hours -->
-	<article>
+	<!-- translatable free text -->
+	<article ng-repeat = "key in ['hours', 'charge', 'venue', 'accessibility']">
 		<div> <!-- spacer --> </div>
 		<div>
-			<h4> {{'ITEMS.HOURS' | translate}} ({{'LANGUAGES.%s' | fill: ic.site.currentLanguage | translate}})</h4>
+			<h4> {{'ITEMS.%s' | fill:key | translate}} ({{'LANGUAGES.%s' | fill: ic.site.currentLanguage | translate}})</h4>
 			
-			<ic-help ic-message = "ITEMS.HOURS_HELP"></ic-help>
+			<ic-help ic-message = "{{'ITEMS.%s_HELP' | fill:key}}"></ic-help>
 			
 
 			<ic-item-property-edit
 				ic-item					= "icItem"
-				ic-key					= "hours"
+				ic-key					= "{{key}}"
 				ic-type 				= "text"
 				ic-translatable			= "true"
 			></ic-item-property-edit>
+
 		</div>
 	</article>
 
+
+	
 
 
 	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
@@ -365,7 +429,6 @@
 	</article>
 
 
-	
 
 	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
 
