@@ -17,7 +17,7 @@
 
 		{
 			name:	'encounters',			//Begegnung
-			colors:	['#832A67'],
+			colors:	['#4fb1ff'],
 			tags:	[
 						'encounters_games',			// Gemeinsames Spielen
 						'encounters_dining',		// Essen und Trinken
@@ -33,7 +33,7 @@
 
 		{
 			name:	'counseling',			//Beratung
-			colors:	['#60409D'],
+			colors:	['#62aa54'],
 			tags: 	[
 						'counseling_social', 	// Sozialberatung
 						'counseling_debt', 		// Schuldnerberatung
@@ -47,7 +47,7 @@
 
 		{
 			name:	'exercise',				//Bewegung_und_Gesundheit
-			colors:	['#31AAE2'],
+			colors:	['#bb53bb'],
 			tags:	[
 						'exercise_motor',			// Bewegungsangebote
 						'exercise_dance',			// Tanzgruppe
@@ -62,7 +62,7 @@
 
 		{
 			name:	'intercultural',		//Sprachen_und_Interkulturelles
-			colors:	['#9f67e8'],
+			colors:	['#f29d22'],
 			tags:	[
 						'intercultural_language_course',	// Sprachkurse
 						'intercultural_language_specific', 	// Sprachspezifische Angebote
@@ -74,7 +74,7 @@
 		{
 	
 			name:	'arts',					//Kunst und Kreativität
-			colors:	['#ec465a'],
+			colors:	['#da535e'],
 			tags: 	[
 						'arts_paint_craft', // Mal- und Bastelkurse
 						'arts_choir', 		// Singen und Chor
@@ -86,7 +86,7 @@
 
 		{
 			name:	'culture',				//Gesellschaft_Kultur_Politik
-			colors:	['#ff9900'],
+			colors:	['#488ec5'],
 			tags: 	[
 						'culture_trips',					// Ausflüge und Exkursionen
 						'culture_meetings',					// Informationstreffen
@@ -102,7 +102,7 @@
 
 		{
 			name:	'support',				//Alltagshilfen_Ehrenamt
-			colors:	['#46b4b9'],
+			colors:	['#729052'],
 			tags: 	[
 						'support_open_lunch',			// Offener Mittagstisch
 						'support_meals_on_wheels',		// Essen auf Rädern
@@ -117,7 +117,7 @@
 
 		{
 			name:	'it',					//Computer_und_Technik
-			colors:	['#ffc300'],
+			colors:	['#f36a07'],
 			tags: 	[
 						'it_courses',	// Kurse und Lernmöglichkeiten
 						'it_seniors',	// Technik und Alter
@@ -128,7 +128,7 @@
 
 		{
 			name:	'housing',				//Wohnen
-			colors:	['#E36E00'],
+			colors:	['#ebc000'],
 			tags: 	[
 						'housing_assisted', 	// Wohnen mit Service
 						'housing_smart',		// Smart Wohnen
@@ -139,7 +139,7 @@
 
 		{
 			name:	'care',					//Rund_um_die_Pflege	
-			colors:	['#00b0c6'],
+			colors:	['#00adc3'],
 			tags: 	[
 						'care_consulting',				// Pflegeberatung
 						'care_in_facility',				// Angebote in Pflegeeinrichtungen
@@ -153,7 +153,7 @@
 
 		{
 			name:	'misc_category',					//Sonstige_Angebote
-			colors:	['#008671'],
+			colors:	['#966ce1'],
 			tags: 	[]
 		},
 
