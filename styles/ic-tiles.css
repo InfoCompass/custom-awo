@@ -61,7 +61,7 @@ ic-page .tiles > *.bottom > .background {
 	position:					static;	
 	z-index:					0;
 
-	height:						18rem;
+	height:						15rem;
 }
 
 
@@ -69,19 +69,22 @@ ic-page .tiles > *.bottom > .background {
 
 
 ic-page .tiles > * > .content {
+	flex:						1 0 0;
 	margin:						0;
 	padding:					1rem;
 	background-color:			transparent;
 	color:						var(--light-text-color);
 	height:						100%;
+	padding-bottom:				6rem;
 }
 
 ic-page .tiles > .bottom > .content {
 	margin:						0;
 	padding:					1rem;
+	padding-bottom:				1rem;
 	height:						auto;
 	background-color:			var(--primary-background-color);
-	color:						var(--plain-text-color);
+	color:						var(--dark-text-color);
 }
 
 ic-page .tiles > * .background.icon {

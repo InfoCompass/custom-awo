@@ -5,7 +5,7 @@
                 "title":                "Seniorennetz",
                 "disableLists":         true,
                 "languages":            ["de", "en", "none"],
-                "activeIconColor":      "rgb(226, 56, 42)",
+                "activeIconColor":      "#373475",
                 "plainIconColor":       "#666666",
                 "pages":                ["home", "tags", "about", "legal", "contact", "tiles", "manual"],
                 "map":{

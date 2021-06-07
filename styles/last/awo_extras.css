@@ -101,3 +101,40 @@ ic-taxonomy-overlay ul li .bubble {
 
 
 
+/* sponsors */
+
+
+
+ic-page #sponsors {
+	display:					flex;
+	flex-wrap:					wrap;
+	justify-content: 			space-around;
+	text-align:					left;
+	margin-bottom:				1rem;
+}
+
+ic-page #sponsors > *{
+	flex:						0 0 auto;	
+	width:						15rem;
+	max-width:					100%;
+}
+
+ic-page #sponsors > * .logos{
+	flex:						1 0 auto;
+	display:					flex;
+	flex-direction:				column;
+	justify-content:			center;	
+	align-items:				center;
+	margin:						auto;
+}
+
+ic-page #sponsors > * .logos a {
+	flex:						0 0 auto;
+	display:					block;
+	background-size:			contain;
+	background-repeat:			no-repeat;
+	background-position:		50% 50%;
+	width:						100%;
+	height:						10rem;
+	flex-direction:				column;
+}
