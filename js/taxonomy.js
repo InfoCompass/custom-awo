@@ -26,7 +26,10 @@
 						'encounters_conversations',	// Offene Gesprächskreise
 						'encounters_tanztee',		// Tanztee
 						'encounters_dating',		// Kennenlerntreffen (Dating)
-						'encounters_gardening'		// Gemeinsames Gärtnern
+						'encounters_gardening',		// Gemeinsames Gärtnern
+
+						'encounters_collectors',	// Sammelleidenschaften !!
+						'encounters_parties'		// Feste und Feiern !!
 
 					]
 		},
@@ -41,7 +44,9 @@
 						'counseling_housing',	// Wohnberatung
 						'counseling_migration',	// Migrationsberatung
 						'counseling_pension',	// Rentenberatung
-						'counseling_police'		// Polizeiberatung
+						'counseling_police',	// Polizeiberatung
+						'counseling_volunteers',// Ehrenamtsberatung !!
+						'counseling_legal'		// Rechtsberatung !!
 					]
 		},
 
@@ -78,7 +83,7 @@
 			tags: 	[
 						'arts_paint_craft', // Mal- und Bastelkurse
 						'arts_choir', 		// Singen und Chor
-						'arts_sewing', 		// Nähen und Schneidern
+						'arts_handicrafts',	// Handarbeit !!
 						'arts_cosmetic',	// Kosmetik
 						'arts_misc'			// Andere künstlerische Angebote
 					]
@@ -108,6 +113,7 @@
 						'support_meals_on_wheels',		// Essen auf Rädern
 						'support_give_away',			// Kleiderkammer, Bücherbasar
 						'support_neighborhood', 		// Einkaufshilfen und Nachbarschaftshilfen
+														// Monilitätsdienste??
 						'support_visiting_service',		// Besuchsdienste
 						'support_repairs',				// Reparaturhilfe
 						'support_helpline', 			// Telefonseelsorge
@@ -122,7 +128,7 @@
 						'it_courses',	// Kurse und Lernmöglichkeiten
 						'it_seniors',	// Technik und Alter
 						'it_lending',	// Leihmöglichkeiten von Tablets und Smartphones
-						'it_free_wifi'	// Kostenlose WLAN - Hotspots
+						//'it_free_wifi'	// Kostenlose WLAN - Hotspots !!
 					]
 		},
 
@@ -267,7 +273,6 @@
 	}
 
 	exports.lor = [
-
 		{
 			tag:	'bz-01',
 			name:	'Mitte',
