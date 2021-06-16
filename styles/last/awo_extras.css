@@ -1,18 +1,29 @@
 ic-footer .image {
-	height:					6rem;
-	width:					20rem;
-	max-width:				95%;
-	background-size:		contain;
-	background-position: 	50% 50%;
-	background-repeat:		no-repeat;
-	margin:					2rem auto;
+	height:						6rem;
+	width:						20rem;
+	max-width:					95%;
+	background-size:			contain;
+	background-position: 		50% 50%;
+	background-repeat:			no-repeat;
+	margin:						2rem auto;
 }
 
 
 ic-header .logo {
-	justify-content:		flex-start;
-	margin-left:			1rem;
-	font-size:				5rem;
+	justify-content:			flex-start;
+	margin-left:				2rem;
+}
+
+ic-header .logo ic-logo-full {
+	font-size:					6rem;
+}
+
+
+
+/* main menu */
+
+ic-main-menu {
+	padding-left:				1rem;
 }
 
 

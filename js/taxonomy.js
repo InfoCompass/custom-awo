@@ -168,7 +168,7 @@
 	exports.types = [
 		{
 			name:		'location',
-			colors:		['#f27020', '#f27020'],
+			colors:		['#373475', '#373475'],
 		},		
 		{
 			name:		'service',

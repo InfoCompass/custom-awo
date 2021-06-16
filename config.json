@@ -4,7 +4,7 @@
                 "frontendLocation":     "https://awo.place-making.org",
                 "title":                "Seniorennetz",
                 "disableLists":         true,
-                "languages":            ["de", "en", "none"],
+                "languages":            ["de", "en", "tr", "none"],
                 "activeIconColor":      "#373475",
                 "plainIconColor":       "#666666",
                 "pages":                ["home", "tags", "about", "legal", "contact", "tiles", "manual"],
