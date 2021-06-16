@@ -258,9 +258,9 @@
 	<!-- responsible -->
 
 	<ic-item-property
-		ng-if			= "item.responsible"
-		ic-title 		= "'ITEMS.RESPONSIBLE' | translate"
-		ic-content		= "item.responsible"
+		ng-if			= "item.responsibleInstitution"
+		ic-title 		= "'ITEMS.RESPONSIBLE_INSTITUTION' | translate"
+		ic-content		= "item.responsibleInstitution"
 		ic-icon			= "'property-responsible'"		
 	>
 	</ic-item-property>
@@ -277,7 +277,6 @@
 		>
 		</qrcode>
 	</div>
-
 
 </section>
 
@@ -353,5 +352,24 @@
 			{{'INTERFACE.FAVOURITE_%s' | fill : ic.favourites.contains(item) ? 'remove': 'add' | translate}}
 		</span>
 	</button>
+
+
+
+	<article 
+		ng-if = "(item|icType).name == 'location' && (ic.itemStorage.data | filter: {location_ref: item.id}).length"
+		class = "item-list"
+	>
+		<h3 class = "bg-0 padding">{{'ITEMS.LINKED_ITEMS' | translate}}</h3>
+
+		<a
+			ng-repeat 	= "linked_item in ic.itemStorage.data | filter: {location_ref: item.id}"
+			ng-href 	= "{{ {activeItem: (linked_item.id | icItem) } | icLink }}"
+			class		= "bg-0 block"
+		>		
+			<ic-item-preview 
+				ic-item		= "linked_item"
+			></ic-item-preview>
+		</a>
+	</div>
 
 </footer>

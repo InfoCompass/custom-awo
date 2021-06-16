@@ -297,8 +297,8 @@
 	<article ng-if = "(icItem | icType).name != 'location'">
 		<div><div class = "icon icon-property-location"></div></div>		
 		<div>
-			<h4> {{'ITEMS.LOCATION_REF' | translate}}</h4>
-
+			<h4> {{'ITEMS.LOCATION_REF' | translate}}</h4>			
+			<p ng-if ="icEdit.location_ref"><em>{{'ITEMS.LOCATION_REF_WARNING' | translate}}</em></p>
 			<ic-item-property-edit
 				class						= "long-labels"
 				ic-item						= "icItem"
@@ -310,7 +310,7 @@
 				ic-options-filter-limit		= "5"				
 				ic-option-filter-key		= "option ? ic.itemStorage.getItem(option).title + ', ' +ic.itemStorage.getItem(option).address : '' "
 				ic-allow-multiple-choices	= "false"
-				ic-force-choice				= "true"
+				ic-force-choice				= "false"
 			></ic-item-property-edit>
 		</div>
 	</article>
@@ -322,14 +322,18 @@
 
 
 
-	<div ng-if = "(icItem | icType).name == 'location'">
+	<div>
 		<div><div class = "icon icon-property-location"></div></div>
-		<h4>{{'ITEMS.FULL_ADDRESS' | translate}}</h4>
+		<div>
+			<h4>{{'ITEMS.FULL_ADDRESS' | translate}}</h4>
+
+			<p ng-if ="icEdit.location_ref"><em>{{'ITEMS.LOCATION_REF_WARNING' | translate}}</em></p>
+		</div>
 	</div>
 
 
 	<!-- location -->
-	<article ng-if = "(icItem | icType).name == 'location'">
+	<article ng-if = "!icEdit.location_ref">
 		<div> <!-- spacer --> </div>
 		<div>
 			<h4> {{'ITEMS.LOCATION' | translate}}</h4>
@@ -345,7 +349,7 @@
 
 
 	<!-- address -->
-	<article ng-if = "(icItem | icType).name == 'location'">
+	<article ng-if = "!icEdit.location_ref">
 		<div> <!-- spacer --> </div>
 		<div>
 			<h4> {{'ITEMS.ADDRESS' | translate}}</h4>
@@ -359,7 +363,7 @@
 	</article>
 
 	<!-- zip -->
-	<article ng-if = "(icItem | icType).name == 'location'">
+	<article ng-if = "!icEdit.location_ref">
 		<div> <!-- spacer --> </div>
 		<div>
 			<h4> {{'ITEMS.ZIP' | translate}}</h4>
@@ -373,7 +377,7 @@
 	</article>
 
 	<!-- city -->
-	<article ng-if = "(icItem | icType).name == 'location'">
+	<article ng-if = "!icEdit.location_ref">
 		<div> <!-- spacer --> </div>
 		<div>
 			<h4> {{'ITEMS.CITY' | translate}}</h4>
@@ -387,9 +391,9 @@
 	</article>
 
 
-	<div ng-if = "(icItem | icType).name == 'location'"><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
+	<div ng-if = "!icEdit.location_ref"><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
 
-	<article ng-if = "(icItem | icType).name == 'location'">
+	<article ng-if = "!icEdit.location_ref">
 		<div> <div class = "icon icon-property-coordinates"></div> </div>
 		<div>
 			<div class = "split">
