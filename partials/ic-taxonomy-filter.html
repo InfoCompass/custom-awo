@@ -6,8 +6,8 @@
 <section class = "types" ng-if = "ic.taxonomy.types && ic.taxonomy.types.length > 0">
 	<ul class = "bg-0">
 		<li
-			class 		= "icon icon-interface-all"
-			ng-class	= "{'bg-3 white':ic.filterConfig.typeCleared()}"
+			class 		= "icon icon-interface-radio"
+			ng-class	= "{'bg-3 white checked':ic.filterConfig.typeCleared()}"
 			ng-click	= "ic.filterConfig.clearType()" 
 			ic-touch-me	= "true"
 		>

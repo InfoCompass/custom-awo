@@ -5,12 +5,12 @@
 
 <div class ="bg-0">
 	<div 
-		class 		= "hero-wrapper screen-only {{item.image ? 'bg-0'  : (item|icType) && 'disabled ic-bg-type-'+(item|icType).name || (item|icCategory) && 'disabled ic-bg-cat-'+(item|icCategory).name}} "
+		class 		= "hero-wrapper screen-only {{item.image ? 'bg-0'  : (item|icType).name == 'location' && 'disabled ic-bg-type-location' || (item|icCategory) && 'disabled ic-bg-cat-'+(item|icCategory).name}} "
 	>
 		<!-- temporarily IGNORe images -->
 		<div
-			ng-if		="true || !item.image"
-			class		= "hero fallback white {{ (item | icType) && 'icon-type-'+(item | icType).name  || (item | icCategory) && 'icon-category-'+(item | icCategory).name}}" 
+			ng-if		="	true || !item.image"
+			class		= 	"hero fallback white {{ (item | icType).name == 'location' && 'icon-type-location' || (item | icCategory) && 'icon-category-'+(item | icCategory).name}}" 
 		>
 		</div>
 		<div 
@@ -359,7 +359,7 @@
 		ng-if = "(item|icType).name == 'location' && (ic.itemStorage.data | filter: {location_ref: item.id}).length"
 		class = "item-list"
 	>
-		<h3 class = "bg-0 padding">{{'ITEMS.LINKED_ITEMS' | translate}}</h3>
+		<div class = "bg-0 padding">{{'ITEMS.LINKED_ITEMS' | translate}}</div>
 
 		<a
 			ng-repeat 	= "linked_item in ic.itemStorage.data | filter: {location_ref: item.id}"

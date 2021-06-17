@@ -86,6 +86,7 @@
 			<h4> {{'ITEMS.TYPE' | translate}}</h4>
 
 			<ic-item-property-edit
+				class						= "long-labels"
 				ic-item						= "icItem"
 				ic-type						= "array"
 				ic-translation-key			= "type"
@@ -295,10 +296,9 @@
 	<!-- location_ref -->
 
 	<article ng-if = "(icItem | icType).name != 'location'">
-		<div><div class = "icon icon-property-location"></div></div>		
+		<div><div class = "icon icon-property-location_ref"></div></div>		
 		<div>
 			<h4> {{'ITEMS.LOCATION_REF' | translate}}</h4>			
-			<p><em>{{'ITEMS.LOCATION_REF_WARNING' | translate}}</em></p>
 			<ic-item-property-edit
 				class						= "long-labels"
 				ic-item						= "icItem"
@@ -306,9 +306,9 @@
 				ic-key						= "location_ref"
 				ic-translation-key			= "location_ref"
 				ic-options					= "ic.itemStorage.data | icTags : ['location'] | mapToKey : 'id' | preventLoop"
-				ic-options-item-ref			= "true"
 				ic-options-filter-limit		= "5"				
 				ic-option-filter-key		= "option ? ic.itemStorage.getItem(option).title + ', ' +ic.itemStorage.getItem(option).address : '' "
+				ic-option-label				= "option ? ic.itemStorage.getItem(option).title + ', ' +ic.itemStorage.getItem(option).address : '' "
 				ic-allow-multiple-choices	= "false"
 				ic-force-choice				= "false"
 			></ic-item-property-edit>
@@ -470,9 +470,9 @@
 				ic-allow-multiple-choices	= "true"
 				ic-key						= "tags"
 			></ic-item-property-edit>
-
 			
 			<h4>{{'ITEMS.%s' | fill: 'accessibility_complement' | translate}} ({{'LANGUAGES.%s' | fill: ic.site.currentLanguage | translate}})</h4>
+			
 			<ic-item-property-edit
 				ic-item					= "icItem"
 				ic-key					= "accessibility"
