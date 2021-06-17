@@ -17,6 +17,16 @@
 <ic-lists-item			ng-class = "{'ic-hide': !ic.overlays.show.listsItem}"		class = "bg-0 center">							</ic-lists-item>
 
 
+
+<ic-item-proposal-preview 
+	ng-if 		= "ic.overlays.show.itemProposalPreview"
+	class		= "bg-0 center max"
+	ic-proposal = "ic.overlays.messages.itemProposalPreview[0]"
+	ic-item		= "ic.site.activeItem"
+></ic-item-proposal-preview>
+
+
+
 <ic-taxonomy-overlay	
 	ng-class	= "{'ic-hide' :!ic.overlays.show.taxonomyOverlayCategories}"		
 	class 		= "bg-0 center max" 
