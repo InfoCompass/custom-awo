@@ -166,12 +166,20 @@
 								(projected.zip		|| '') + ' ' + (projected.city || ''), 
 								 projected.country 	|| ''
 							]"
+		ic-lor			=	"item.tags"
+		ic-icon			= 	"'property-location'"
+	>
+	</ic-item-property>
+
+	<ic-item-property
+		class			=	"screen-only"
+		ng-repeat		=	"projected in [ (item | project : ['longitude', 'latitude'] | preventLoop) ]"
+		ng-if			= 	"projected.latitude && projected.longitude"
+		ic-title 		= 	"'ITEMS.SHOW_LOCATION_AT' | translate"
 		ic-extra-links	= 	"{
 								'Google Maps' : 	(projected | gmLink), 
-								'OpenStreetMap' : 	(projected | osmLink)
+								'OpenStreetMap' : 	(projected | osmLink),
 							}"
-
-		ic-icon			= 	"'property-location'"
 	>
 	</ic-item-property>
 
@@ -180,7 +188,6 @@
 
 	<article>
 		<div ng-if = "ic.layout.mode.name != 'XS'"><!-- spacer --></div>
-
 
 		<ic-mini-map
 			class		= "screen-only"
@@ -200,22 +207,17 @@
 	>
 	</ic-item-property>
 
-	<article 
-		class = "screen-only"
-		ng-if = "item.location_ref"
+
+	<ic-item-property
+		ng-if 			= 	"item.location_ref"
+		ic-title 		= 	"'ITEMS.REFERRED_LOCATION' | translate"		
+		ic-content		=	"(item.location_ref | icItem).title"
+		ic-content-link	=	"{activeItem: (item.location_ref | icItem) } | icLink"
+		ic-extra-lines	=	"[ (item.location_ref | icItem).brief[ic.site.currentLanguage] ]"
+		ic-icon			= 	"'property-location_ref'"
 	>
+	</ic-item-property>
 
-		<div><!-- spacer --></div>
-
-		<a ng-href = "{{ {activeItem: (item.location_ref | icItem) } | icLink }}">
-
-			<ic-item-preview
-				ic-item = "(item.location_ref | icItem)"
-			></ic-item-preview>
-
-		</a>
-
-	</article>
 
 
 
@@ -230,7 +232,6 @@
 		ic-link		= "::key | icLinkPrefix"
 	>
 	</ic-item-property>
-
 
 	<ic-item-property
 		ng-repeat	= "key in ['facebook', 'twitter', 'whatsapp']"
@@ -255,13 +256,27 @@
 	>
 	</ic-item-property>
 	
+
+
+	<!-- accessibility -->
+
+	<ic-item-property
+		ng-if			= 	"(item.tags | section : ic.taxonomy.tags.accessibility).length > 0"
+		ic-title 		= 	"'ITEMS.ACCESSIBILITY' | translate"
+		ic-extra-lines	= 	"item.tags | section : ic.taxonomy.tags.accessibility | mapExpression : '( \'UNSORTED_TAGS.%s\'| fill: x | translate)' : this | preventLoop "
+		ic-icon			= 	"'property-accessibility'"
+	>
+	</ic-item-property>
+
+
+
 	<!-- responsible -->
 
 	<ic-item-property
 		ng-if			= "item.responsibleInstitution"
 		ic-title 		= "'ITEMS.RESPONSIBLE_INSTITUTION' | translate"
 		ic-content		= "item.responsibleInstitution"
-		ic-icon			= "'property-responsible'"		
+		ic-icon			= "'property-responsible_institution'"		
 	>
 	</ic-item-property>
 

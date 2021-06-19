@@ -18,14 +18,11 @@ ic-header .logo ic-logo-full {
 	font-size:					6rem;
 }
 
+/* main menu*/
 
-
-/* main menu */
-
-ic-main-menu {
+ic-header ic-main-menu  {
 	padding-left:				1rem;
 }
-
 
 /* filter overlays: */
 
