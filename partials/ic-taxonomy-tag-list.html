@@ -23,11 +23,12 @@
 	>
 		{{'CATEGORIES.%s' | fill : tag | translate}}
 	</a><!--
- --><a
+ <a
 		class		= "ic-tag"
-		ng-repeat 	= "tag in ic.taxonomy.tags | flatten : null : 'accessibility' | preventLoop"
+		ng-repeat 	= "tag in ic.taxonomy.tags | flatten : null : null | preventLoop"
 		ng-if		= "tag | in: icTags"
 		ng-href		= "/list/u/{{::tag}}"
 	>
 		{{'UNSORTED_TAGS.%s' | fill : tag | translate}}
 	</a>
+-->

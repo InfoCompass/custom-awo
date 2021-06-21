@@ -124,6 +124,8 @@
 		</h3>
 
 		<div>
+
+
 			<div 
 				ng-if	= "ic.layout.mode.name != 'XS'"
 			>
@@ -132,6 +134,7 @@
 					<span ng-if = "ic.user.can('edit_items')">[{{'ITEMS.STATE_%s' | fill: item.state | translate}}]</span>
 				</h2>
 			</div>
+
 			<h3 ng-if	= "ic.layout.mode.name != 'XS'">
 				{{ item.brief[ic.site.currentLanguage] }}
 			</h3>
@@ -149,14 +152,126 @@
 			>
 			</div>
 
+
+
 		</div>
+
+
 	</article>
 	<!-- end item title -->
+
+
+	<!-- venue -->
+
+	<ic-item-property
+		class			= "short"
+		ng-if			= "item.venue[ic.site.currentLanguage]"
+		ic-title 		= "'ITEMS.VENUE' | translate"	
+		ic-content		= "item.venue[ic.site.currentLanguage]"
+	>
+	</ic-item-property>
+
+
+	<br/>
+
+
+	<!-- hours -->
+
+	<ic-item-property
+		class			= "short"
+		ng-if			= "item.hours[ic.site.currentLanguage]"
+		ic-title 		= "'ITEMS.HOURS' | translate"	
+		ic-content		= "item.hours[ic.site.currentLanguage]"
+	>
+	</ic-item-property>
+
+	<!-- charge -->
+
+	<ic-item-property
+		class			= "short"
+		ng-if			= "item.charge[ic.site.currentLanguage]"
+		ic-title 		= "'ITEMS.CHARGE' | translate"	
+		ic-content		= "item.charge[ic.site.currentLanguage]"
+	>
+	</ic-item-property>
+	
+
+
+	<!-- target groups -->
+
+	<ic-item-property
+		class			= "short"
+		ng-if			= "(item.tags | icUnsortedTags : 'target_groups').length"
+		ic-title 		= "'ITEMS.TARGET_GROUPS' | translate"	
+		ic-content		= "(item.tags | icUnsortedTags : 'target_groups' | mapExpression: '\'UNSORTED_TAGS.%s\' | fill: x | translate' : this).join(', ')"
+	>
+	</ic-item-property>
+
+
+	<!-- languages -->
+
+	<ic-item-property
+		class			= "short"
+		ng-if			= "(item.tags | icUnsortedTags : 'languages').length"
+		ic-title 		= "'ITEMS.LANGUAGES' | translate"	
+		ic-content		= "(item.tags | icUnsortedTags : 'languages'  | mapExpression: '\'UNSORTED_TAGS.%s\' | fill: x | translate' : this).join(', ')"
+	>
+	</ic-item-property>
+	
+
+	<br/>
+
+
+	<!-- misc -->
+
+	<ic-item-property
+		class			= "short"
+		ng-if			= "(item.tags | icUnsortedTags : 'misc').length"
+		ic-content		= "(item.tags | icUnsortedTags : 'misc'  | mapExpression: '\'UNSORTED_TAGS.%s\' | fill: x | translate' : this).join(', ')"
+	>
+	</ic-item-property>
+
+
+
+	<div ng-if = "item.location_ref"><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>	
+
+
+	<!-- event location -->
+
+	<ic-item-property
+		ng-if 			= 	"item.location_ref"	
+		ic-title 		= 	"'ITEMS.REFERRED_LOCATION' | translate"		
+		ic-icon			= 	"'property-location_ref'"
+	></ic-item-property>
+
+	<ic-item-property
+		ng-if 			= 	"item.location_ref"
+		ic-content		=	"(item.location_ref | icItem).title"
+		ic-content-link	=	"{activeItem: (item.location_ref | icItem) } | icLink"
+		ic-extra-lines	=	"[ (item.location_ref | icItem).brief[ic.site.currentLanguage] ]"
+	>
+	</ic-item-property>
+
+
+	<!-- mini map -->
+
+	<article>
+		<div ng-if = "ic.layout.mode.name != 'XS'"><!-- spacer --></div>
+
+		<ic-mini-map
+			class		= "screen-only"
+			ng-if		= "(item | project : 'longitude') && (item | project : 'latitude')"
+			ic-item		= "item"
+		>
+		</ic-mini-map>
+	</article>
+
 
 
 	<!-- address -->
 
 	<ic-item-property
+		class			= 	"screen-only"
 		ng-repeat		=	"projected in [ (item | project : ['location', 'address', 'zip', 'city', 'country', 'longitude', 'latitude'] | preventLoop) ]"
 		ng-if			= 	"projected.address"
 		ic-title 		= 	"'ITEMS.ADDRESS' | translate"
@@ -172,7 +287,26 @@
 	</ic-item-property>
 
 	<ic-item-property
-		class			=	"screen-only"
+		class			=	"print-only"
+		ng-repeat		=	"projected in [ (item | project : ['location', 'address', 'zip', 'city', 'country', 'longitude', 'latitude'] | preventLoop) ]"
+		ng-if			= 	"projected.address"
+		ic-title 		= 	"'ITEMS.ADDRESS' | translate"
+		ic-content		= 	"projected.location"
+		ic-extra-lines	= 	"[
+								 projected.address 	|| '-', 
+								(projected.zip		|| '') + ' ' + (projected.city || ''), 
+								 projected.country 	|| ''
+							]"
+		ic-icon			= 	"'property-location'"
+	>
+	</ic-item-property>
+
+
+
+	<!-- map links -->
+
+	<ic-item-property
+		class			=	"screen-only short"
 		ng-repeat		=	"projected in [ (item | project : ['longitude', 'latitude'] | preventLoop) ]"
 		ng-if			= 	"projected.latitude && projected.longitude"
 		ic-title 		= 	"'ITEMS.SHOW_LOCATION_AT' | translate"
@@ -184,90 +318,74 @@
 	</ic-item-property>
 
 
-	<!-- geo coordinates -->
-
-	<article>
-		<div ng-if = "ic.layout.mode.name != 'XS'"><!-- spacer --></div>
-
-		<ic-mini-map
-			class		= "screen-only"
-			ng-if		= "(item | project : 'longitude') && (item | project : 'latitude')"
-			ic-item		= "item"
-		>
-		</ic-mini-map>
-	</article>
-
-	<ic-item-property
-		class			= "screen-only"
-		ng-if			= "item.longitude && item.latitude && !item.address"
-		ic-title 		= "'ITEMS.GEO_COORDINATES' | translate"
-		ic-content		= "item.latitude + ', ' +item.longitude"
-		ic-icon			= "'property-location'"
-		ic-extra-links	= "{'Google Maps' : GMLink, 'OpenStreetMap' : OSMLink}"
-	>
-	</ic-item-property>
 
 
-	<ic-item-property
-		ng-if 			= 	"item.location_ref"
-		ic-title 		= 	"'ITEMS.REFERRED_LOCATION' | translate"		
-		ic-content		=	"(item.location_ref | icItem).title"
-		ic-content-link	=	"{activeItem: (item.location_ref | icItem) } | icLink"
-		ic-extra-lines	=	"[ (item.location_ref | icItem).brief[ic.site.currentLanguage] ]"
-		ic-icon			= 	"'property-location_ref'"
-	>
-	</ic-item-property>
+	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>	
 
-
-
-
-	<!-- misc -->
-
-	<ic-item-property
-		ng-repeat	= "key in ['contact', 'website', 'email', 'phone']"
-		ng-if		= "item[key]"
-		ic-title 	= "'ITEMS.%s' | fill : key | translate"
-		ic-content	= "item[key]"
-		ic-icon		= "'property-'+key+''"
-		ic-link		= "::key | icLinkPrefix"
-	>
-	</ic-item-property>
-
-	<ic-item-property
-		ng-repeat	= "key in ['facebook', 'twitter', 'whatsapp']"
-		ng-if		= "item[key]"
-		ic-title 	= "'ITEMS.%s' | fill : key | translate"
-		ic-content	= "item[key]"
-		ic-icon		= "'property-'+key+''"
-		ic-link		= "::key | icLinkPrefix"
-		class		= "screen-only"
-	>
-	</ic-item-property>
-
-	
-
-	<!-- hours -->
-
-	<ic-item-property
-		ng-if			= "item.hours[ic.site.currentLanguage]"
-		ic-title 		= "'ITEMS.HOURS' | translate"
-		ic-icon			= "'property-time'"
-		ic-content		= "item.hours[ic.site.currentLanguage]"
-	>
-	</ic-item-property>
-	
 
 
 	<!-- accessibility -->
 
 	<ic-item-property
-		ng-if			= 	"(item.tags | section : ic.taxonomy.tags.accessibility).length > 0"
+		ng-if			= 	"item.accessibility[ic.site.currentLanguage] || (item.tags | section : ic.taxonomy.tags.accessibility).length > 0"
 		ic-title 		= 	"'ITEMS.ACCESSIBILITY' | translate"
-		ic-extra-lines	= 	"item.tags | section : ic.taxonomy.tags.accessibility | mapExpression : '( \'UNSORTED_TAGS.%s\'| fill: x | translate)' : this | preventLoop "
 		ic-icon			= 	"'property-accessibility'"
+	></ic-item-property>
+
+	<ic-item-property
+		ng-if			= 	"(item.tags | section : ic.taxonomy.tags.accessibility).length > 0"
+		ic-extra-lines	= 	"item.tags | section : ic.taxonomy.tags.accessibility | mapExpression : '( \'UNSORTED_TAGS.%s\'| fill: x | translate)' : this | preventLoop "
 	>
 	</ic-item-property>
 
+
+	<ic-item-property
+		ng-if			= 	"item.accessibility[ic.site.currentLanguage]"
+		ic-content		= 	"item.accessibility[ic.site.currentLanguage]"
+	>
+	</ic-item-property>
+
+
+
+
+	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>	
+
+
+
+	<!-- contact details -->
+
+	<ic-item-property
+		ic-title 		= "'ITEMS.CONTACT_DETAILS' | translate "		
+		ic-icon			= "'property-contact'"
+	>
+	</ic-item-property>
+
+	<br/>
+
+	<ic-item-property
+		class			= "short"
+		ng-repeat-start	= "key in ['contact', 'phone', 'email', 'website', 'twitter', 'facebook', 'whatsapp']"
+		ng-if			= "item[key]"
+		ic-title 		= "'ITEMS.%s' | fill : key | translate"
+		ic-content		= "item[key]"
+		ic-icon			= "'property-'+(key != 'contact' ? key : '')"
+		ic-link			= "::key | icLinkPrefix"
+	>
+	</ic-item-property>
+	<br 
+		ng-if			= "item[key]"		
+		ng-repeat-end/
+	>
+
+
+	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>	
+
+	<ic-item-property
+		ng-if			= "(item.tags | icUnsortedTags : 'institution_type').length > 0"
+		ic-title 		= "'ITEMS.INSTITUTION_TYPE' | translate"
+		ic-extra-lines	= "item.tags | icUnsortedTags : 'institution_type' | mapExpression: '\'UNSORTED_TAGS.%s\' | fill:x | translate' : this"
+	>
+	</ic-item-property>
 
 
 	<!-- responsible -->
@@ -276,7 +394,6 @@
 		ng-if			= "item.responsibleInstitution"
 		ic-title 		= "'ITEMS.RESPONSIBLE_INSTITUTION' | translate"
 		ic-content		= "item.responsibleInstitution"
-		ic-icon			= "'property-responsible_institution'"		
 	>
 	</ic-item-property>
 
