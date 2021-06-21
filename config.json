@@ -1,7 +1,8 @@
 {
                 "backendLocation":      "https://api.seniorennetz.berlin",
                 "statsLocation":        "https://stats.seniorennetz.berlin",
-                "frontendLocation":     "https://awo.place-making.org",
+                "frontendLocation":     "https://seniorennetz.berlin",
+                "publicItems":          "https://public.seniorennetz.berlin",
                 "title":                "Seniorennetz",
                 "disableLists":         true,
                 "languages":            ["de"],
