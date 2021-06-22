@@ -16,6 +16,8 @@
 
 <ic-lists-item			ng-class = "{'ic-hide': !ic.overlays.show.listsItem}"		class = "bg-0 center">							</ic-lists-item>
 
+<ic-lor-filter			ng-class = "{'ic-hide': !ic.overlays.show.lorFilter}" 		class = "bg-0 center">							</ic-lor-filter >
+
 
 
 <ic-item-proposal-preview 
@@ -40,6 +42,13 @@
 	ic-expand 	= "key"
 	ng-repeat	= "(key, tagGroup) in ic.taxonomy.tags"
 ></ic-taxonomy-overlay>
+
+<ic-taxonomy-overlay	
+	ng-class	= "{'ic-hide': !ic.overlays.show['taxonomyLorOverlay']}"		
+	class 		= "bg-0 center" 
+	ic-expand 	= "'lor'"
+></ic-taxonomy-overlay>
+
 
 
 <ic-login 

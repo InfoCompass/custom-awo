@@ -8,7 +8,9 @@
 
 <h2 ng-if = "icExpand == 'categories'">{{'INTERFACE.CATEGORIES' | translate}}</h2>
 
-<h2 ng-if = "icExpand != 'categories'">{{'INTERFACE.TAGS_%s' | fill : icExpand | translate}}</h2>	
+<h2 ng-if = "icExpand == 'lor'">{{'INTERFACE.LOR' | translate}}</h2>	
+
+<h2 ng-if = "!['categories', 'lor'].includes(icExpand)">{{'INTERFACE.TAGS_%s' | fill : icExpand | translate}}</h2>	
 
 <input 
 	ng-if		= "icExpand == 'languages'"
@@ -104,40 +106,148 @@
 </ul>
 
 
-<ul 
-		class 		= "bg-0"
-		ng-if		= "icExpand == 'districts'"		
+<section 
+		class 		= 	"bg-0 lor selects"
+		ng-if		= 	"icExpand == 'lor'"	
+		ic-watch	= 	"{ 
+							'ic.cite.filterByUnsortedTag':	'
+								selected = { 
+												dst : (ic.site.filterByUnsortedTag | icDistrict), 
+												pgr : (ic.site.filterByUnsortedTag | icPrognoseraum), 
+												bzr : (ic.site.filterByUnsortedTag | icBezirksregion)
+											}; 
+								tag 	= 	{	
+												dst: selected.dst.tag, 
+												pgr: selected.pgr.tag, 
+												bzr: selected.bzr.tag
+											};
+							'
+						}"
+>
+
+
+	<label for ="filter-lor-dst">
+		{{'INTERFACE.LOR_DST' | translate}}
+	</label>
+	<select
+		id			=	"filter-lor-dst"
+		class		=	"border-1 padding"
+		ng-model	= 	"tag.dst"
+		ng-change	= 	"
+							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_dst);
+							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_pgr);
+							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_bzr);
+
+							selected.dst = (tag.dst|icDistrict);
+
+							selected.dst && ic.filterConfig.toggleUnsortedTag(selected.dst.tag, true);
+
+
+						"	
+
 	>
-	<li
-		class 		= "icon icon-interface-radio"
-		ng-class	= "{'bg-3 white checked':ic.filterConfig.unsortedTagCleared(ic.taxonomy.tags.districts)}"
-		ng-click	= "ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.districts)" 
-		ic-touch-me	= "true"
-	>
-		<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
-	</li>
-	<li
-		ng-repeat 	= "tag in ic.taxonomy.tags.districts | orderBy : ic.utils.evalItems('item.substr(0,4) == \'misc\' ? null :(\'UNSORTED_TAGS.%s\' | fill : item | translate)')"
-		ng-if		= "!filter || ('UNSORTED_TAGS.%s' | fill : tag | translate | match : filter[icExpand])"
-		class		= "icon icon-interface-radio"
-		ic-button	= "{active:ic.filterConfig.unsortedTagActive(tag), checked:ic.filterConfig.unsortedTagActive(tag)}"
-		ng-class	= "{active:active, checked:active, disabled: disabled}"
-		ng-click	= "!disabled && (ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.districts).toggleUnsortedTag(tag))"
-		ic-touch-me	= "!disabled"
-	>
-		<div>{{'UNSORTED_TAGS.%s' | fill : tag | translate }}</div>
-		<span 
-			class 		= "bubble shade-light col-1"
-			ng-if 		= "!disabled"
+
+		<option
+			value		= ""
+			ng-selected = "!tag.dst" 
 		>
-			<span>
-				{{ic.itemStorage.currentStats.totals[tag]}}
-			</span>
-		</span>
-	</li>
-</ul>
+			<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
+		</option>
+
+		<option
+			ng-repeat 	= "dst in ic.taxonomy.lor | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+			value		= "{{dst.tag}}"
+			ng-disabled	= "!ic.itemStorage.currentStats.totals[dst.tag]"
+			ng-selected	= "tag.dst == dst.tag"
+		>
+			{{'UNSORTED_TAGS.%s' | fill : dst.tag | translate }}
+			
+			({{ic.itemStorage.currentStats.totals[dst.tag] || 0}})			
+		</option>
+
+	</select>
 
 
+
+
+	<label for ="filter-lor-pgr">
+		{{'INTERFACE.LOR_PGR' | translate}}
+	</label>
+	<select
+		id			=	"filter-lor-pgr"
+		class		=	"border-1 padding"
+		ng-model	= 	"tag.pgr"
+		ng-change	= 	"
+							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_pgr);
+							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_bzr);
+
+							selected.pgr = (tag.pgr|icPrognoseraum);
+
+							selected.pgr && ic.filterConfig.toggleUnsortedTag(selected.pgr.tag, true);
+						"
+	>
+
+		<option
+			value	= ""
+		>
+			<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
+		</option>
+
+		<option
+			ng-repeat 	= "pgr in selected.dst.pgr | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+			value		= "{{pgr.tag}}"
+			ng-disabled	= "!ic.itemStorage.currentStats.totals[pgr.tag]"			
+		>
+			{{'UNSORTED_TAGS.%s' | fill : pgr.tag | translate }}
+			
+			({{ic.itemStorage.currentStats.totals[pgr.tag] || 0}})			
+		</option>
+
+	</select>
+
+
+
+
+
+
+	<label for ="filter-lor-bzr">
+		{{'INTERFACE.LOR_BZR' | translate}}
+	</label>
+	<select
+		id			=	"filter-lor-bzr"
+		class		=	"border-1 padding"
+		ng-model	= 	"tag.bzr"
+		ng-change	= 	"
+							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_bzr);
+
+							selected.bzr = (tag.bzr|icBezirksregion);
+
+							selected.bzr && ic.filterConfig.toggleUnsortedTag(selected.bzr.tag, true);
+						"
+	>
+
+		<option
+			value	= ""
+		>
+			<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
+		</option>
+
+		<option
+			ng-repeat 	= "bzr in selected.pgr.bzr | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+			value		= "{{bzr.tag}}"
+			ng-disabled	= "!ic.itemStorage.currentStats.totals[bzr.tag]"			
+		>
+			{{'UNSORTED_TAGS.%s' | fill : bzr.tag | translate }}
+			
+			({{ic.itemStorage.currentStats.totals[bzr.tag] || 0}})			
+		</option>
+
+	</select>
+
+
+</section>
+
+<!-- 
 
 <ul 
 		class 		= "bg-0"
@@ -176,4 +286,4 @@
 			</span>
 		</span>
 	</li>
-</ul>
+</ul> -->

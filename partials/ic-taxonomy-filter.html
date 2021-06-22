@@ -96,13 +96,29 @@
 <section 
 	class 		= "unsorted"
 	ng-repeat 	= "(key, tagGroup) in ic.taxonomy.tags" 
-	ng-if		= "key != 'lists'"
+	ng-if		= "!['lists', 'lor_dst', 'lor_pgr', 'lor_bzr'].includes(key)"
 >
 	<div
 		class 		= "bg-0 padding tal"
 		ng-click	= "ic.overlays.toggle('taxonomyOverlay_'+key)"
 		ic-touch-me	= "true" 
-	>{{'INTERFACE.TAGS_%s' | fill : key| translate}}
+	>
+		{{ 'INTERFACE.TAGS_%s' | fill : key| translate}}
 	</div>
 	
 </section>
+
+
+<section
+	class		= "lor"
+>
+	<div
+		class		= "bg-0 padding tal"
+		ng-click	= "ic.overlays.toggle('taxonomyLorOverlay')"
+		ic-touch-me	= "true"
+	>
+		{{ 'INTERFACE.LOR' | translate }}
+	</div>
+</section>
+
+
