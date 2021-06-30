@@ -537,10 +537,7 @@
 		ng-repeat 	= 	"(key,value) in ic.taxonomy.tags"
 		ng-if		= 	" 
 								(key != 'lists'  || !ic.config.disableLists) 
-							&&	!['extra', 'accessibility', 'state', 'lor_dst', 'lor_pgr', 'lor_bzr'].inclueds(key)
-							&&	key != 'extra'
-							&&	key != 'accessibility'
-							&&	key != 'state'
+							&&	!['extra', 'accessibility', 'state', 'lor_dst', 'lor_pgr', 'lor_bzr'].includes(key)
 						"
 	>
 		<div> <!-- spacer --> </div>
