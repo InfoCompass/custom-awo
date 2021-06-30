@@ -117,7 +117,7 @@
 						'support_visiting_service',		// Besuchsdienste
 						'support_repairs',				// Reparaturhilfe
 						'support_helpline', 			// Telefonseelsorge
-						'support_public_restrooms'		// Öffentliche Toiletten
+						'support_public_restrooms',		// Öffentliche Toiletten
 						'support_mobility'				// Mobilitätshilfedienste
 					]
 		},
