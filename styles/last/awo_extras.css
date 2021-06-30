@@ -147,3 +147,11 @@ ic-page #sponsors > * .logos a {
 	height:						10rem;
 	flex-direction:				column;
 }
+
+
+/* item proprties */
+
+ic-item-property .title {
+	font-weight:			500;
+	line-height:			1.5rem;
+} 
