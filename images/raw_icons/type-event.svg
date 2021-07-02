@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19">
-  <g fill="#000000" fill-rule="evenodd" transform="translate(-6 -7)">
-    <g transform="translate(6 7)">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g fill="none" fill-rule="evenodd">
+    <g fill="#000000" transform="translate(2 2.5)">
       <polygon points="4.023 2.945 5.024 2.945 5.024 0 4.023 0"/>
       <polygon points="15.053 2.945 16.053 2.945 16.053 0 15.053 0"/>
       <polygon points="9.474 2.945 10.474 2.945 10.474 0 9.474 0"/>
       <polygon points=".5 4.978 19.62 4.978 19.62 3.978 .5 3.978"/>
       <polygon points="9.905 14.03 7.294 10.337 8.111 9.759 9.928 12.331 14.201 6.901 15 7.5"/>
     </g>
-    <path d="M6,25.0273 L25.998,25.0273 L25.998,7.9993 L6,7.9993 L6,25.0273 Z M7,24.0273 L24.998,24.0273 L24.998,8.9993 L7,8.9993 L7,24.0273 Z"/>
+    <path fill="#000000" d="M2,20.5273 L21.998,20.5273 L21.998,3.4993 L2,3.4993 L2,20.5273 Z M3,19.5273 L20.998,19.5273 L20.998,4.4993 L3,4.4993 L3,19.5273 Z"/>
   </g>
 </svg>
