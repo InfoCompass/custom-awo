@@ -82,6 +82,15 @@
 		</div>
 	</article>
 
+	<article 
+		class = "screen-only"
+		ng-if = "!ic.user.can('edit_items')"
+	>		
+		<div> <!-- spacer --> </div>
+		<div>
+				{{'ITEMS.LAST_CHANGE' | translate}}: {{item.lastEditDate | icDate}}			
+		</div>
+	</article>
 
 
 
