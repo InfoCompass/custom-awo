@@ -5,7 +5,7 @@
                 "publicItems":          "https://public.seniorennetz.berlin/items",
                 "title":                "Seniorennetz",
                 "disableLists":         true,
-                "languages":            ["de"],
+                "languages":            ["de", "tr"],
                 "adminLanguages":       ["en", "tr", "none"],
                 "activeIconColor":      "#373475",
                 "plainIconColor":       "#666666",
