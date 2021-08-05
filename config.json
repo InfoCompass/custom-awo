@@ -6,7 +6,7 @@
                 "title":                "Seniorennetz",
                 "disableLists":         true,
                 "languages":            ["de", "tr"],
-                "adminLanguages":       ["en", "tr", "none"],
+                "adminLanguages":       ["de", "en", "tr", "none"],
                 "activeIconColor":      "#373475",
                 "plainIconColor":       "#666666",
                 "pages":                ["home", "tags", "about", "legal", "contact", "tiles", "manual"],
@@ -29,6 +29,9 @@
 				"twitter": {
 						"hashtag": "seniorennetz-berlin"
 				},
-				"email": true
+				"email": true,
+                "facebook"  :   true,
+                "whatsapp"  :   true,
+                "telegram"  :   true
 		}               
 }
