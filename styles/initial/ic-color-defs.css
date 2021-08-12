@@ -1,16 +1,16 @@
 :root{
 	--primary-color:				#373475;
 	--secondary-color:				var(--primary-color);
-	--primary-background-color:		#FFFFFF;
-	--secondary-background-color:	#e6e6e6;
-	--plain-color:					#949494;
 
 	--dark-text-color:				#222;	
 	--light-text-color:				#fff;
 	--plain-text-color:				#666;
 
-	--neutral-color:				#949494;
+	--primary-background-color:		#FFFFFF;
+	--secondary-background-color:	#e6e6e6;
 
+	--neutral-color:				#949494;
+	--focus-color: 					rgba(255,50,50,0.8);
 	--error-color:					red;
 	
 }
