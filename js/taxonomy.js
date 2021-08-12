@@ -273,7 +273,7 @@
 
 	}
 
-	exports.lor = [
+	exports.lor = [		
 		{
 			tag:	'bz_01',
 			name:	'Mitte',
@@ -326,7 +326,7 @@
 				{
 					id:		'0130',
 					tag:	'pgr_0130',
-					name:	'Gesund­­brunnen',
+					name:	'Gesundbrunnen',
 					bzr:[
 						{
 							id:		'013007',
