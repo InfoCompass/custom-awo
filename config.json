@@ -9,7 +9,7 @@
                 "adminLanguages":       ["de", "en", "tr", "none"],
                 "activeIconColor":      "#373475",
                 "plainIconColor":       "#666666",
-                "pages":                ["home", "tags", "about", "legal", "contact", "tiles", "manual"],
+                "pages":                ["home", "tags", "about", "legal", "contact", "tiles", "manual", "accessible_language"],
                 "adminPages":           ["options"],
                 "map":{
                                 "center":               [52.518611,13.408333],
