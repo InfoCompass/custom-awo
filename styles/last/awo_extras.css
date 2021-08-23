@@ -113,13 +113,19 @@ ic-taxonomy-overlay ul li .bubble {
 /* sponsors */
 
 
-ic-page header > .image{
+ic-page header > .image {
 	position: 					absolute;
 	height: 					10rem;
 	width: 						10rem;
 	right: 						1rem;
 	top: 						1rem;
+	padding: 					0;
 	z-index: 					99;
+}
+
+.XS ic-page header > .image {
+	height: 					7rem;
+	width: 						7rem;
 }
 
 
