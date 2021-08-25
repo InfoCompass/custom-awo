@@ -11,11 +11,13 @@ ic-footer .image {
 
 ic-header .logo {
 	justify-content:			flex-start;
+	align-items: 				start;
 	margin-left:				2rem;
 }
 
 ic-header .logo ic-logo-full {
 	font-size:					6rem;
+	margin-top: 				0.5rem;
 }
 
 /* main menu*/
