@@ -35,18 +35,31 @@
 		},
 
 		{
-			name:	'counseling',			//Beratung
-			colors:	['#62aa54'],
+	
+			name:	'arts',					//Kunst und Kreativität
+			colors:	['#da535e'],
 			tags: 	[
-						'counseling_social', 	// Sozialberatung
-						'counseling_debt', 		// Schuldnerberatung
-						'counseling_tenant',	// Mieterberatung
-						'counseling_housing',	// Wohnberatung
-						'counseling_migration',	// Migrationsberatung
-						'counseling_pension',	// Rentenberatung
-						'counseling_police',	// Polizeiberatung
-						'counseling_volunteers',// Ehrenamtsberatung !!
-						'counseling_legal'		// Rechtsberatung !!
+						'arts_paint_craft', // Mal- und Bastelkurse
+						'arts_choir', 		// Singen und Chor
+						'arts_handicrafts',	// Handarbeit !!
+						'arts_cosmetic',	// Kosmetik
+						'arts_misc'			// Andere künstlerische Angebote
+					]
+		},
+
+		{
+			name:	'culture',				//Gesellschaft_Kultur_Politik
+			colors:	['#488ec5'],
+			tags: 	[
+						'culture_trips',					// Ausflüge und Exkursionen
+						'culture_meetings',					// Informationstreffen
+						'culture_music_theatre_film',		// Musik, Theater, Film
+						'culture_literature', 				// Literatur
+						'culture_politics', 				// Politische Themen
+						'culture_culture',					// Kulturelle Themen
+						'culture_relegion',					// Religiöse Themen
+						'culture_environment',				// Klima, Natur und Umwelt
+						'culture_senior_represantatives'	// Sprechstunden der Seniorenvertretungen
 					]
 		},
 
@@ -77,31 +90,13 @@
 		},
 
 		{
-	
-			name:	'arts',					//Kunst und Kreativität
-			colors:	['#da535e'],
+			name:	'it',					//Computer_und_Technik
+			colors:	['#f36a07'],
 			tags: 	[
-						'arts_paint_craft', // Mal- und Bastelkurse
-						'arts_choir', 		// Singen und Chor
-						'arts_handicrafts',	// Handarbeit !!
-						'arts_cosmetic',	// Kosmetik
-						'arts_misc'			// Andere künstlerische Angebote
-					]
-		},
-
-		{
-			name:	'culture',				//Gesellschaft_Kultur_Politik
-			colors:	['#488ec5'],
-			tags: 	[
-						'culture_trips',					// Ausflüge und Exkursionen
-						'culture_meetings',					// Informationstreffen
-						'culture_music_theatre_film',		// Musik, Theater, Film
-						'culture_literature', 				// Literatur
-						'culture_politics', 				// Politische Themen
-						'culture_culture',					// Kulturelle Themen
-						'culture_relegion',					// Religiöse Themen
-						'culture_environment',				// Klima, Natur und Umwelt
-						'culture_senior_represantatives'	// Sprechstunden der Seniorenvertretungen
+						'it_courses',	// Kurse und Lernmöglichkeiten
+						'it_seniors',	// Technik und Alter
+						'it_lending',	// Leihmöglichkeiten von Tablets und Smartphones
+						//'it_free_wifi'	// Kostenlose WLAN - Hotspots !!
 					]
 		},
 
@@ -123,25 +118,19 @@
 		},
 
 		{
-			name:	'it',					//Computer_und_Technik
-			colors:	['#f36a07'],
+			name:	'counseling',			//Beratung
+			colors:	['#62aa54'],
 			tags: 	[
-						'it_courses',	// Kurse und Lernmöglichkeiten
-						'it_seniors',	// Technik und Alter
-						'it_lending',	// Leihmöglichkeiten von Tablets und Smartphones
-						//'it_free_wifi'	// Kostenlose WLAN - Hotspots !!
+						'counseling_social', 	// Sozialberatung
+						'counseling_debt', 		// Schuldnerberatung
+						'counseling_tenant',	// Mieterberatung
+						'counseling_housing',	// Wohnberatung
+						'counseling_migration',	// Migrationsberatung
+						'counseling_pension',	// Rentenberatung
+						'counseling_police',	// Polizeiberatung
+						'counseling_volunteers',// Ehrenamtsberatung !!
+						'counseling_legal'		// Rechtsberatung !!
 					]
-		},
-
-		{
-			name:	'housing',				//Wohnen
-			colors:	['#ebc000'],
-			tags: 	[
-						'housing_assisted', 	// Wohnen mit Service
-						'housing_smart',		// Smart Wohnen
-						'housing_project'		// Wohnprojekte
-
-			]
 		},
 
 		{
@@ -157,6 +146,18 @@
 
 			]
 		},
+
+		{
+			name:	'housing',				//Wohnen
+			colors:	['#ebc000'],
+			tags: 	[
+						'housing_assisted', 	// Wohnen mit Service
+						'housing_smart',		// Smart Wohnen
+						'housing_project'		// Wohnprojekte
+
+			]
+		},
+
 
 		{
 			name:	'misc_category',					//Sonstige_Angebote
@@ -191,16 +192,6 @@
 			'young_and_old',	//Jung und Alt
 		],	
 
-		institution_type: [
-			'meeting_place',			//Begegnungsstätte
-			'multigenerational_house', 	//Mehrgenerationenhaus
-			'district_center',			//Stadtteilzentrum
-			'family_center',			//Familienzentrum
-			'counseling_center',		//Beratungsstelle
-			'neighborhood_center',		//Nachbarschaftstreff
-			'misc_institution' 			//andere
-		],
-
 		accessibility:[				
 			'wheelchair_accessible_wc',	//Rollstuhlgerechtes WC
 			'accessible_parking',		//Parkplatz für Menschen mit Behinderung
@@ -208,6 +199,12 @@
 			'elevator_present',			//Fahrstuhl vorhanden			
 		],
 
+		misc :[
+			'free_wifi_usage', 		// Kostenlose W-Lan-Nutzung
+			'free_pc_usage',		// Kostenlose PC Nutzung
+		],
+
+		
 		languages: [
 			'albanian', 		//	Albanisch
 			'amharic', 			//	Amharisch
@@ -265,11 +262,16 @@
 			'wolof',			//	Wolof
 		],
 
+		institution_type: [
+			'meeting_place',			//Begegnungsstätte
+			'multigenerational_house', 	//Mehrgenerationenhaus
+			'district_center',			//Stadtteilzentrum
+			'family_center',			//Familienzentrum
+			'counseling_center',		//Beratungsstelle
+			'neighborhood_center',		//Nachbarschaftstreff
+			'misc_institution' 			//andere
+		],
 
-		misc :[
-			'free_wifi_usage', 		// Kostenlose W-Lan-Nutzung
-			'free_pc_usage',		// Kostenlose PC Nutzung
-		]
 
 	}
 

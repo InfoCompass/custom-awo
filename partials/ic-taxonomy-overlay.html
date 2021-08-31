@@ -131,7 +131,8 @@
 	</label>
 	<select
 		id			=	"filter-lor-dst"
-		class		=	"border-1 padding"
+		class		=	"icon tac right icon-interface-down"
+		ng-class	=	"{'bg-3 white': selected.dst, 'border-1': !selected.dst}"
 		ng-model	= 	"tag.dst"
 		ng-change	= 	"
 							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_dst);
@@ -175,7 +176,8 @@
 	</label>
 	<select
 		id			=	"filter-lor-pgr"
-		class		=	"border-1 padding"
+		class		=	"icon tac right icon-interface-down"
+		ng-class	=	"{'bg-3 white': selected.pgr, 'border-1': !selected.pgr}"
 		ng-model	= 	"tag.pgr"
 		ng-change	= 	"
 							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_pgr);
@@ -185,6 +187,7 @@
 
 							selected.pgr && ic.filterConfig.toggleUnsortedTag(selected.pgr.tag, true);
 						"
+		ng-disabled	=	"!selected.dst"
 	>
 
 		<option
@@ -215,7 +218,8 @@
 	</label>
 	<select
 		id			=	"filter-lor-bzr"
-		class		=	"border-1 padding"
+		class		=	"icon tac right icon-interface-down"
+		ng-class	=	"{'bg-3 white': selected.bzr, 'border-1': !selected.bzr}"
 		ng-model	= 	"tag.bzr"
 		ng-change	= 	"
 							ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.lor_bzr);
@@ -224,6 +228,8 @@
 
 							selected.bzr && ic.filterConfig.toggleUnsortedTag(selected.bzr.tag, true);
 						"
+		ng-disabled	=	"!selected.pgr"
+
 	>
 
 		<option
