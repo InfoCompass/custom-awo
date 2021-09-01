@@ -67,19 +67,7 @@
 			<span class	= "icon large left icon-interface-edit white"></span>
 			{{'INTERFACE.SUGGEST_NEW_ITEM' | translate }}
 		</a>
-	</li>
-	<li 
-		ng-show = "!ic.user.loggedIn && icPlain"
-		class 	= "bg-0"
-	>
-		<a 
-			ng-click = "ic.overlays.toggle('login')"
-			ic-touch-me
-		>
-			<span class	= "icon large left icon-interface-user active"></span>
-			{{'INTERFACE.LOGIN' | translate }}
-		</a>
-	</li>
+	</li>	
 
 	<!-- <li><a href="#">		{{'INTERFACE.CALENDAR' 		| translate}}</a>	</li> -->
 	<li
@@ -118,7 +106,7 @@
 			</li>
 			<li  
 				class = "bg-0 hover"
-				ng-if	= "!ic.user.loggedIn && !icPlain"
+				ng-if	= "!ic.user.loggedIn"
 				ic-touch-me
 			>
 				<button  
