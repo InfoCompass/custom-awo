@@ -3,58 +3,70 @@
 
 
 
-<section class = "types" ng-if = "ic.taxonomy.types && ic.taxonomy.types.length > 0">
-	<ul class = "bg-0">
-		<li
-			class 		= "icon icon-interface-radio"
-			ng-class	= "{'bg-3 white checked':ic.filterConfig.typeCleared()}"
-			ng-click	= "ic.filterConfig.clearType()" 
-			ic-touch-me	= "true"
+<section 
+	class = "types bg-0" 
+	ng-if = "ic.taxonomy.types && ic.taxonomy.types.length > 0"
+>
+
+	<button
+		class 		= "icon icon-interface-radio"
+		ng-class	= "{'bg-3 white checked':ic.filterConfig.typeCleared()}"
+		ng-click	= "ic.filterConfig.clearType()" 
+		ic-touch-me	= "true"
+	>
+		<div>{{'INTERFACE.FILTER_ANY' | translate}}</div>
+	</button>
+
+	<button
+		ng-repeat 	= "type in ic.taxonomy.types"
+		class 		= "icon icon-type-{{::type.name}}"
+		ic-button	= "{active:ic.filterConfig.typeActive(type.name), disabled: !ic.itemStorage.currentStats.altMatches[type.name]}"
+		ng-class	= "{'bg-3 white':active, disabled: disabled}"
+		ng-click	= "!disabled && ic.filterConfig.toggleType(type.name, undefined, true)"
+		ic-touch-me	= "!disabled"
+	>
+		<div>{{'TYPES.%s' | fill : type.name |translate}} </div>
+		<span 
+			class 		= "bubble shade-light"
+			ng-class	= "{'col-2': active, 'col-1': !active}"
+			ng-if 		= "!disabled"
 		>
-			<div>{{'INTERFACE.FILTER_ANY' | translate}}</div>
-		</li>
-		<li
-			ng-repeat 	= "type in ic.taxonomy.types"
-			class 		= "icon icon-type-{{::type.name}}"
-			ic-button	= "{active:ic.filterConfig.typeActive(type.name), disabled: !ic.itemStorage.currentStats.altMatches[type.name]}"
-			ng-class	= "{'bg-3 white':active, disabled: disabled}"
-			ng-click	= "!disabled && ic.filterConfig.toggleType(type.name, undefined, true)"
-			ic-touch-me	= "!disabled"
-		>
-			<div>{{'TYPES.%s' | fill : type.name |translate}} </div>
-			<span 
-				class 		= "bubble shade-light"
-				ng-class	= "{'col-2': active, 'col-1': !active}"
-				ng-if 		= "!disabled"
-			>
-				<span>
-					{{ic.itemStorage.currentStats.altMatches[type.name]}}
-				</span>
-				<span ng-if = "ic.itemStorage.currentStats.altMatches[type.name] != ic.itemStorage.currentStats.totals[type.name]">
-					/
-				</span>
-				<span ng-if = "ic.itemStorage.currentStats.altMatches[type.name] != ic.itemStorage.currentStats.totals[type.name]">
-					{{ic.itemStorage.currentStats.totals[type.name]}}
-				</span>
+			<span>
+				{{ic.itemStorage.currentStats.altMatches[type.name]}}
 			</span>
-		</li>
-	</ul>
+			<span ng-if = "ic.itemStorage.currentStats.altMatches[type.name] != ic.itemStorage.currentStats.totals[type.name]">
+				/
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.altMatches[type.name] != ic.itemStorage.currentStats.totals[type.name]">
+				{{ic.itemStorage.currentStats.totals[type.name]}}
+			</span>
+		</span>
+	</button>
+
 </section>
 
 
 
-<section class = "categories" ng-if = "ic.taxonomy.categories && ic.taxonomy.categories.length > 0">
-	<h2 
-		class 		= "bg-0 icon"
-		ng-class	= "{'icon-interface-down': expand.categories, 'icon-interface-right': !expand.categories}"
-		ng-click	= "expand.categories = !expand.categories"
-		ic-touch-me	= "true" 
-	>{{'INTERFACE.CATEGORIES' | translate}}</h2>
-	<ul 
+<section 
+	ng-if = "ic.taxonomy.categories && ic.taxonomy.categories.length > 0"
+	class = "categories" 
+>
+	<h2>
+		<button
+			class 		= "bg-0 icon"
+			ng-class	= "{'icon-interface-down': expand.categories, 'icon-interface-right': !expand.categories}"
+			ng-click	= "expand.categories = !expand.categories"
+			ic-touch-me	= "true" 
+		>
+			{{'INTERFACE.CATEGORIES' | translate}}
+		</button>
+	</h2>
+
+	<div 
 		class 		= "bg-0"
-		ng-show		= "expand.categories"
+		ng-if		= "expand.categories"		
 	>
-		<li
+		<button
 			ng-if		= "true"
 			class 		= "icon icon-interface-radio"
 			ng-class	= "{'bg-3 white  checked':ic.filterConfig.categoryCleared()}"
@@ -62,8 +74,9 @@
 			ic-touch-me	= "true"
 		>
 			<div>{{'INTERFACE.FILTER_ANY' | translate}}</div>
-		</li>
-		<li
+		</button>
+
+		<button
 			ng-repeat 	= "category in ic.taxonomy.categories"
 			ng-if		= "true"
 			class		= "icon icon-category-{{::category.name}} bg-0"
@@ -88,9 +101,14 @@
 					{{ic.itemStorage.currentStats.totals[category.name]}}
 				</span>
 			</span>
-		</li>
-	</ul>
+		</button>
+
+	</div>
+
 </section>
+
+
+
 
 <section
 	class		= "lor"
