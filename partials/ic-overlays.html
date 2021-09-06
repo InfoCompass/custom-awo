@@ -26,7 +26,14 @@
 >		
 </ic-popup>
 
-<ic-taxonomy-filter 	ng-class = "{'ic-hide': !ic.overlays.show.taxonomyFilter}" 	class = "bg-1 left">							</ic-taxonomy-filter >
+<ic-taxonomy-filter 	
+	ng-class 	= "{'ic-hide': !ic.overlays.show.taxonomyFilter}" 	
+	class 		= "bg-1 left"
+	focus-me	= "ic.overlays.show.taxonomyFilter"
+	ic-tab-group
+>
+	
+</ic-taxonomy-filter >
 
 <ic-lists-menu			ng-class = "{'ic-hide': !ic.overlays.show.listsMenu}"		class = "bg-0 right">							</ic-lists-menu>
 
@@ -49,6 +56,8 @@
 	ng-class	= "{'ic-hide' :!ic.overlays.show.taxonomyOverlayCategories}"		
 	class 		= "bg-0 center max" 
 	ic-expand 	= "'categories'"
+	focus-me	= "ic.overlays.show.taxonomyOverlayCategories"
+	ic-tab-group
 ></ic-taxonomy-overlay>
 
 
@@ -56,13 +65,17 @@
 	ng-class	= "{'ic-hide': !ic.overlays.show['taxonomyOverlay_'+key]}"		
 	class 		= "bg-0 center max" 
 	ic-expand 	= "key"
-	ng-repeat	= "(key, tagGroup) in ic.taxonomy.tags"
+	ng-repeat	= "(key, tagGroup) in ic.taxonomy.tags"	
+	focus-me	= "ic.overlays.show['taxonomyOverlay_'+key]"
+	ic-tab-group
 ></ic-taxonomy-overlay>
 
 <ic-taxonomy-overlay	
 	ng-class	= "{'ic-hide': !ic.overlays.show['taxonomyLorOverlay']}"		
 	class 		= "bg-0 center" 
 	ic-expand 	= "'lor'"
+	focus-me	= "ic.overlays.show['taxonomyLorOverlay']"
+	ic-tab-group
 ></ic-taxonomy-overlay>
 
 

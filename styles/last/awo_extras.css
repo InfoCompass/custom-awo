@@ -56,7 +56,8 @@ ic-taxonomy-overlay h2 + input {
 }
 
 
-ic-taxonomy-overlay ul {
+ic-taxonomy-overlay ul, /*alt*/
+ic-taxonomy-overlay > div {
 	display:					flex;
 	padding-left:				0 !important;
 	padding-right:				0 !important;
@@ -69,7 +70,8 @@ ic-taxonomy-overlay ul {
 	justify-content: 			space-between;
 }
 
-ic-taxonomy-overlay ul li {
+ic-taxonomy-overlay ul li, /*alt*/
+ic-taxonomy-overlay > div button {
 	flex:						0 0 20rem;
 	display:					inline-flex !important;
 	align-items:				center;
@@ -80,32 +82,24 @@ ic-taxonomy-overlay ul li {
 	padding-bottom:				0.5rem;
 	background-position:		0.75rem 50% !important;
 	margin-bottom:				0.25rem !important;
+	text-align: 				left;
 }
 
 
-ic-taxonomy-overlay ul li:first-child{
+ic-taxonomy-overlay ul li:first-child, /*alt*/
+ic-taxonomy-overlay > div button:first-child {
 	flex:						0 1 100%;
 }
 
-ic-taxonomy-overlay ul .types li.disabled {
-	display:					none;
-}
-
-ic-taxonomy-overlay ul .categories li.disabled {
-	display:					none;
-}
-
-ic-taxonomy-overlay ul .unsorted li.disabled {
-	display:					none;
-}
-
-ic-taxonomy-overlay ul li div {
+ic-taxonomy-overlay ul li div, /* alt */
+ic-taxonomy-overlay > div button div {
 	flex:						1 1 auto;
 	display:					inline-block;
 	vertical-align:				middle;
 }
 
-ic-taxonomy-overlay ul li .bubble {
+ic-taxonomy-overlay ul li .bubble, /* alt */
+ic-taxonomy-overlay > div button .bubble {
 	display:					inline-block;
 	flex:						0 0 auto;
 }

@@ -19,11 +19,11 @@
 	placeholder = "{{'INTERFACE.FILTER' | translate }}" 
 />
 
-<ul 
+<div
 	class 		= "bg-0"
 	ng-if		= "icExpand == 'categories'"
 >
-	<li
+	<button
 		ng-if		= "true"
 		class 		= "icon icon-interface-radio"
 		ng-class	= "{'bg-3 white checked':ic.filterConfig.categoryCleared()}"
@@ -31,9 +31,9 @@
 		ic-touch-me	= "true"
 	>
 		<div>{{'INTERFACE.FILTER_ANY' | translate}}</div>
-	</li>
+	</button>
 
-	<li
+	<button
 		ng-repeat 	= "category in ic.taxonomy.categories | orderBy : ic.utils.evalItems('item.name.substr(0,4) == \'misc\' ? null : (\'CATEGORIES.%s\' | fill : item.name | translate)')"
 		ng-if		= "!filter || ('CATEGORIES.%s' | fill : category.name | translate | match : filter[icExpand])"
 		class		= "icon icon-category-{{::category.name}} bg-0"
@@ -60,25 +60,25 @@
 				{{ic.itemStorage.currentStats.totals[category.name]}}
 			</span>
 		</span>
-	</li>
-</ul>
+	</button>
+</div>
 
 
 
-<ul 
+<div 
 		class 		= "bg-0"
 		ng-if		= "icExpand == key && ['districts'].indexOf(key) == -1"
 		ng-repeat	= "(key, tagGroup) in ic.taxonomy.tags"
 	>
-	<li
+	<button
 		class 		= "icon icon-interface-radio bg-0"
 		ng-class	= "{'bg-3 white checked':ic.filterConfig.unsortedTagCleared(tagGroup)}"
 		ng-click	= "ic.filterConfig.clearUnsortedTag(tagGroup)" 
 		ic-touch-me	= "true"
 	>
 		<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
-	</li>
-	<li
+	</button>
+	<button
 		ng-repeat 	= "tag in tagGroup | orderBy : ic.utils.evalItems('item.substr(0,4) == \'misc\' ? null :(\'UNSORTED_TAGS.%s\' | fill : item | translate)')"
 		ng-if		= "!filter || ('UNSORTED_TAGS.%s' | fill : tag | translate | match : filter[icExpand])"
 		class		= "icon icon-interface-checkbox"
@@ -102,8 +102,8 @@
 				{{ic.itemStorage.currentStats.totals[tag]}}
 			</span>
 		</span>
-	</li>
-</ul>
+	</button>
+</div>
 
 
 <section 

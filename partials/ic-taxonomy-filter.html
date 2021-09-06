@@ -113,13 +113,14 @@
 <section
 	class		= "lor"
 >
-	<div
+	<button
 		class		= "bg-0 padding tal"
 		ng-click	= "ic.overlays.toggle('taxonomyLorOverlay')"
 		ic-touch-me	= "true"
+		tabindex	= "0"		
 	>
 		{{ 'INTERFACE.LOR' | translate }}
-	</div>
+	</button>
 </section>
 
 
@@ -129,13 +130,13 @@
 	ng-repeat 	= "(key, tagGroup) in ic.taxonomy.tags" 
 	ng-if		= "!['lists', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp'].includes(key)"
 >
-	<div
+	<button
 		class 		= "bg-0 padding tal"
 		ng-click	= "ic.overlays.toggle('taxonomyOverlay_'+key)"
 		ic-touch-me	= "true" 
 	>
 		{{ 'INTERFACE.TAGS_%s' | fill : key| translate}}
-	</div>
+	</button>
 	
 </section>
 
