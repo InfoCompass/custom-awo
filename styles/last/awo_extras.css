@@ -29,12 +29,6 @@ ic-header ic-main-menu  {
 /* filter overlays: */
 
 
-.XS ic-taxonomy-filter section  > button {
-	padding-left:				1rem !important;	
-	padding-right:				1rem !important;				
-}
-
-
 ic-taxonomy-overlay {
 	padding-top:				0;
 	padding-left:				1rem;
