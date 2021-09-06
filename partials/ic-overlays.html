@@ -1,7 +1,8 @@
 <ic-language-menu 		
 	ng-class 	= "{'ic-hide': !ic.overlays.show.languageMenu}" 	
 	class 		= "bg-0 right"
-	focus-me 	= "ic.overlays.show.languageMenu"
+	focus-me = "ic.overlays.show.languageMenu"
+	ic-tab-group
 >	
 </ic-language-menu>	
 
@@ -11,9 +12,19 @@
 
 <ic-sharing-menu 		ng-class = "{'ic-hide': !ic.overlays.show.sharingMenu}" 	class = "bg-0 center">							</ic-sharing-menu>
 
-<ic-confirmation-modal	ng-if = "ic.overlays.show.confirmationModal" 				class = "bg-0 center">							</ic-confirmation-modal>
+<ic-confirmation-modal	
+	ng-if 			= "ic.overlays.show.confirmationModal" 				
+	class 			= "bg-0 center"
+	focus-me		= "ic.overlays.show.confirmationModal"
+>							
+</ic-confirmation-modal>
 
-<ic-popup				ng-if = "ic.overlays.show.popup" 							class = "bg-0 center">							</ic-popup>
+<ic-popup				
+	ng-if 			= "ic.overlays.show.popup" 							
+	class 			= "bg-0 center"
+	ic-focus-me 	= "ic.overlays.show.popup"
+>		
+</ic-popup>
 
 <ic-taxonomy-filter 	ng-class = "{'ic-hide': !ic.overlays.show.taxonomyFilter}" 	class = "bg-1 left">							</ic-taxonomy-filter >
 
