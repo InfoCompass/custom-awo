@@ -184,19 +184,24 @@
 
 	exports.tags = {
 
+		mode: [
+			'on_site',			// vor Ort
+			'online',			// online
+		],
+
 		target_groups: [
-			'migrants', 		//Migrant*innen
-			'women', 			//Frauen
-			'men',				//Männer
-			'lgtbiq', 			//LSBTI*
-			'young_and_old',	//Jung und Alt
+			'migrants', 		// Migrant*innen
+			'women', 			// Frauen
+			'men',				// Männer
+			'lgtbiq', 			// LSBTI*
+			'young_and_old',	// Jung und Alt
 		],	
 
 		accessibility:[				
-			'wheelchair_accessible_wc',	//Rollstuhlgerechtes WC
-			'accessible_parking',		//Parkplatz für Menschen mit Behinderung
-			'wheelchair_accessible',	//Zugang rollstuhlgerecht
-			'elevator_present',			//Fahrstuhl vorhanden			
+			'wheelchair_accessible_wc',	// Rollstuhlgerechtes WC
+			'accessible_parking',		// Parkplatz für Menschen mit Behinderung
+			'wheelchair_accessible',	// Zugang rollstuhlgerecht
+			'elevator_present',			// Fahrstuhl vorhanden			
 		],
 
 		misc :[
