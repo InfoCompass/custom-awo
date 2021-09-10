@@ -187,6 +187,7 @@
 		mode: [
 			'on_site',			// vor Ort
 			'online',			// online
+			'phone'				// per Telefon
 		],
 
 		target_groups: [
