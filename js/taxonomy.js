@@ -35,6 +35,12 @@
 		},
 
 		{
+			name:	'medical',
+			colors:	['#D878E3'],
+			tags:	[]
+		},
+
+		{
 	
 			name:	'arts',					//Kunst und Kreativität
 			colors:	['#da535e'],
