@@ -27,7 +27,10 @@
                                             "tablet_courses"
                                         ],
                 
-                "adminPages":           ["options"],
+                "adminPages":           [
+                                            "options", 
+                                            "icons"
+                                        ],
                 "map":{
                                 "center":               [52.518611,13.408333],
                                 "zoom":                 10,
