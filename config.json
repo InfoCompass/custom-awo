@@ -13,18 +13,19 @@
                                             "home", 
                                             "tags", 
                                             "about", 
+                                            "project_partners",
+                                            "accessibility", 
                                             "legal", 
                                             "contact", 
                                             "tiles", 
                                             "manual", 
                                             "accessible_language", 
-                                            "accessibility", 
                                             "privacy",
                                             "emergency_numbers",
-                                            "project_partners",
                                             "feedback",
                                             "info_boxes",
-                                            "tablet_courses"
+                                            "tablet_courses",
+                                            "howto_suggestions"
                                         ],
                 
                 "adminPages":           [
