@@ -176,7 +176,7 @@ ic-item-property .title {
 
 	background-size: 		cover;
 	background-position: 	center;
-	background-repeat: 		none;
+	background-repeat: 		no-repeat;
 	background-color: 		var(--primary-color);
 
 }
