@@ -175,6 +175,7 @@ ic-item-property .title {
 	border-radius: 			100%;
 
 	background-size: 		cover;
+	background-position: 	center;
 	background-repeat: 		none;
 	background-color: 		var(--primary-color);
 
@@ -186,9 +187,9 @@ ic-item-property .title {
 }
 
 .portrait-ines {
-	background-image: 		url('/assets/_178b+Quilitzki.JPG')
+	background-image: 		url('/assets/ines.jpg')
 }
 
 .portrait-melanie {
-	background-image: 		url('/assets/_210+a+Thoma.JPG')
+	background-image: 		url('/assets/melanie.jpg')
 }
