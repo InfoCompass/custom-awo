@@ -160,3 +160,35 @@ ic-item-property .title {
 	font-weight:			500;
 	line-height:			1.5rem;
 } 
+
+
+
+/* contact portraits */
+
+.portrait {
+	display: 				block;
+	height: 				10rem;
+	width: 					10rem;
+
+	float: 					right;
+
+	border-radius: 			100%;
+
+	background-size: 		cover;
+	background-repeat: 		none;
+	background-color: 		var(--primary-color);
+
+}
+
+.XS .portrait {
+	float: 					none;
+	margin: 				auto;
+}
+
+.portrait-ines {
+	background-image: 		url('/assets/_178b+Quilitzki.JPG')
+}
+
+.portrait-melanie {
+	background-image: 		url('/assets/_210+a+Thoma.JPG')
+}
