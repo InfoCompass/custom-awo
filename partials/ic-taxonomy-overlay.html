@@ -1,10 +1,13 @@
-
-
 <button 
-	class 		= "icon icon-interface-close large close"
+	class 		= "icon icon-interface-close right large close"
 	ng-click	= "ic.overlays.toggle()" 
 >
+	<span class = "active normal">
+		{{'INTERFACE.APPLY_FILTERS' | translate}}
+	</span>
 </button>
+
+
 
 <h2 ng-if = "icExpand == 'categories'">{{'INTERFACE.CATEGORIES' | translate}}</h2>
 

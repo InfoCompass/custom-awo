@@ -589,7 +589,6 @@
 				ic-message = "{{ 'ITEMS.%s_HELP'|fill:key }}"
 			>
 			</ic-help>
-
 			<ic-item-property-edit
 				ng-if						= "key != 'extra'"
 				ic-item						= "icItem"
@@ -599,6 +598,7 @@
 				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
 				ic-allow-multiple-choices	= "true"
 				ic-key						= "tags"
+				ic-check-none				= "key == 'target_groups' && 'INTERFACE.FOR_ALL'"
 			></ic-item-property-edit>
 
 
