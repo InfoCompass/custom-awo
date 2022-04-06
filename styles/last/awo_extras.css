@@ -98,7 +98,11 @@ ic-taxonomy-overlay > div button .bubble {
 	flex:						0 0 auto;
 }
 
-
+ic-taxonomy-overlay .actions {
+	display: 					block;
+	margin-top: 				2rem;
+	text-align: 				right;
+}
 
 /* sponsors */
 

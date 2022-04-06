@@ -6,7 +6,7 @@
                 "title":                "Seniorennetz",
                 "disableLists":         true,
                 "languages":            ["de", "en", "tr", "ru"],
-                "adminLanguages":       ["none"],
+                "adminLanguages":       ["ar", "none"],
                 "activeIconColor":      "#373475",
                 "plainIconColor":       "#666666",
                 "pages":                [
