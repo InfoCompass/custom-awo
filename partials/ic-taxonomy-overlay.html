@@ -126,7 +126,7 @@
 >
 
 	<button
-		class 		= "icon icon-interface-checkbox left"
+		class 		= "icon icon-interface-checkbox left margin-bot"
 		ic-button	= "{active:ic.filterConfig.unsortedTagActive('berlin_wide'), checked:ic.filterConfig.unsortedTagActive('berlin_wide'), disabled: !ic.itemStorage.currentStats.subMatches['berlin_wide']}"
 		ng-class	= "{active:active, checked:active, disabled: disabled}"
 		ng-click	= "!disabled && ic.filterConfig.toggleUnsortedTag('berlin_wide')" 
@@ -148,10 +148,6 @@
 			</span>
 		</span>
 	</button>
-
-	<br/>
-	<br/>
-	<br/>
 
 	<label for ="filter-lor-dst">
 		{{'INTERFACE.LOR_DST' | translate}}
