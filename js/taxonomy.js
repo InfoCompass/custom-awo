@@ -284,11 +284,15 @@
 			'misc_institution' 			//andere
 		],
 
+		extra: [
+			'berlin_wide'		//berlinweit
+		]
 
 	}
 
-	exports.lor = [		
-		{
+	exports.lor = [
+
+		{	
 			tag:	'bz_01',
 			name:	'Mitte',
 			pgr:[

@@ -275,8 +275,9 @@
 				ic-item						= "icItem"
 				ic-type						= "array"
 				ic-translation-key			= "DISTRICTS"
-				ic-options					= "ic.taxonomy.lor | mapToKey: 'tag' | preventLoop"
+				ic-options					= "ic.taxonomy.lor | mapToKey: 'tag' | add: 'berlin_wide' | preventLoop"
 				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
+				ic-leading-option			= "'berlin_wide'"
 				ic-allow-multiple-choices	= "true"
 				ic-key						= "tags"
 			></ic-item-property-edit>

@@ -110,7 +110,7 @@
 		class 		= 	"bg-0 lor selects"
 		ng-if		= 	"icExpand == 'lor'"	
 		ic-watch	= 	"{ 
-							'ic.cite.filterByUnsortedTag':	'
+							'ic.site.filterByUnsortedTag':	'
 								selected = { 
 												dst : (ic.site.filterByUnsortedTag | icDistrict), 
 												pgr : (ic.site.filterByUnsortedTag | icPrognoseraum), 
@@ -125,6 +125,33 @@
 						}"
 >
 
+	<button
+		class 		= "icon icon-interface-checkbox left"
+		ic-button	= "{active:ic.filterConfig.unsortedTagActive('berlin_wide'), checked:ic.filterConfig.unsortedTagActive('berlin_wide'), disabled: !ic.itemStorage.currentStats.subMatches['berlin_wide']}"
+		ng-class	= "{active:active, checked:active, disabled: disabled}"
+		ng-click	= "!disabled && ic.filterConfig.toggleUnsortedTag('berlin_wide')" 
+		ic-touch-me	= "true"
+	>
+		<a>{{'UNSORTED_TAGS.BERLIN_WIDE' | translate}} </a>
+		<span 
+			class 		= "bubble shade-light col-1"
+			ng-if 		= "!disabled"
+		>
+			<span>
+				{{ic.itemStorage.currentStats.subMatches['berlin_wide']}}
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches['berlin_wide'] != ic.itemStorage.currentStats.totals['berlin_wide']">
+				/
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches['berlin_wide'] != ic.itemStorage.currentStats.totals['berlin_wide']">
+				{{ic.itemStorage.currentStats.totals['berlin_wide']}}
+			</span>
+		</span>
+	</button>
+
+	<br/>
+	<br/>
+	<br/>
 
 	<label for ="filter-lor-dst">
 		{{'INTERFACE.LOR_DST' | translate}}
@@ -156,7 +183,7 @@
 		</option>
 
 		<option
-			ng-repeat 	= "dst in ic.taxonomy.lor | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+			ng-repeat 	= "dst in ic.taxonomy.lor | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"			
 			value		= "{{dst.tag}}"
 			ng-disabled	= "!ic.itemStorage.currentStats.totals[dst.tag]"
 			ng-selected	= "tag.dst == dst.tag"
@@ -239,7 +266,7 @@
 		</option>
 
 		<option
-			ng-repeat 	= "bzr in selected.pgr.bzr | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+			ng-repeat 	= "bzr in selected.pgr.bzr | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"			
 			value		= "{{bzr.tag}}"
 			ng-disabled	= "!ic.itemStorage.currentStats.totals[bzr.tag]"			
 		>
