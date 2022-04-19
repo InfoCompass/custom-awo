@@ -355,12 +355,6 @@
 	</article>
 
 
-
-
-
-
-
-
 	<div>
 		<div><div class = "icon icon-property-location"></div></div>
 		<div>
@@ -428,6 +422,22 @@
 			></ic-item-property-edit>
 		</div>
 	</article>
+
+	<!-- directions -->
+	<article ng-if = "!icEdit.location_ref">
+		<div> <!-- spacer --> </div>
+		<div>
+			<h4> {{'ITEMS.DIRECTIONS' | translate}} ({{'LANGUAGES.%s' | fill: ic.site.currentLanguage | translate}})</h4>
+			
+			<ic-item-property-edit
+				ic-item					= "icItem"
+				ic-key					= "directions"
+				ic-type 				= "text"
+				ic-translatable			= "true"
+			></ic-item-property-edit>
+		</div>
+	</article>
+
 
 
 	<div ng-if = "!icEdit.location_ref"><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>

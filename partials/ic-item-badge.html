@@ -1,11 +1,13 @@
 <div
 	ng-if = "(icItem|icType).name != 'location'"
-	class = "icon large icon-large icon-category-{{ (icItem|icCategory).name }} round white ic-bg-cat-{{ (icItem|icCategory).name }}"
+	class = "icon large icon-large icon-category-{{ (icItem|icCategory).name }} round white ic-bg-cat-{{ (icItem|icCategory).name }}  ic-state-{{icItem.state}}"
+	title = " {{'CATEGORIES.%s' | fill : (icItem|icCategory).name | translate}}"
 >
 </div>
 
 <div
 	ng-if = "(icItem|icType).name == 'location'"
-	class = "icon large icon-large icon-type-location round white ic-bg-type-location"
+	class = "icon large icon-large icon-type-location round white ic-bg-type-location ic-state-{{icItem.state}}"
+	title = " {{'CATEGORIES.%s' | fill : (icItem|icCategory).name | translate}}"
 >
 </div>

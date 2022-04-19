@@ -252,17 +252,9 @@
 	</ic-item-property>
 
 
-	
 
 
-
-
-
-
-
-
-
-	<div>
+	<div ng-if = "true">
 		<div class = "icon icon-section-location bottom right"> <!-- spacer --> </div>
 		<div>
 			<hr class  = "bg-2"/>
@@ -330,6 +322,13 @@
 	</ic-item-property>
 
 
+	<!-- directions -->
+	<ic-item-property		
+		ng-repeat		= 	"projected in [ (item | project : ['directions']) ] | preventLoop"
+		ng-if			=	"projected.directions && projected.directions[ic.site.currentLanguage]"
+		ic-content		= 	"projected.directions[ic.site.currentLanguage]"
+	>
+	</ic-item-property>
 
 	<!-- map links -->
 
