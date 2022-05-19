@@ -2,7 +2,7 @@
 	<h1>{{'INTERFACE.CATEGORIES' | translate}}</h1>
 
 	<ic-category
-		ng-repeat 	= "category in (['encounters', 'arts', 'culture', 'exercise', 'intercultural', 'it', 'support', 'counseling', 'care', 'housing', 'misc_category'] | icFullCategory)"
+		ng-repeat 	= "category in (['encounters', 'arts', 'culture', 'exercise', 'intercultural', 'it', 'support', 'counseling', 'care', 'medical', 'housing', 'misc_category'] | icFullCategory)"
 		ng-if		= "ic.itemStorage.currentStats.subMatches[category.name]"
 	>
 		<div class = "icon large icon-category-{{category.name}} white ic-bg-cat-{{category.name}} round"></div>

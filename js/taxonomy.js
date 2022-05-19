@@ -35,12 +35,6 @@
 		},
 
 		{
-			name:	'medical',
-			colors:	['#D878E3'],
-			tags:	[]
-		},
-
-		{
 	
 			name:	'arts',					//Kunst und Kreativität
 			colors:	['#da535e'],
@@ -152,6 +146,13 @@
 
 			]
 		},
+
+		{
+			name:	'medical',				//Medizinische Angebote 
+			colors:	['#D878E3'],
+			tags:	[]
+		},
+
 
 		{
 			name:	'housing',				//Wohnen
