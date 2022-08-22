@@ -82,18 +82,6 @@
 		</div>
 	</article>
 
-	<article 
-		class = "screen-only"
-		ng-if = "item.lastEditDate"
-	>		
-		<div> <!-- spacer --> </div>
-		<div>
-				{{'ITEMS.LAST_CHANGE' | translate}}: {{item.lastEditDate | icDate}}			
-		</div>
-	</article>
-
-
-
 	<!-- tags -->
 
 
@@ -254,7 +242,7 @@
 
 
 
-	<div ng-if = "true">
+	<div ng-if = "item.location_ref || item.address || item.directions[ic.site.currentLanguage] || (item.latitude && item.longitude) ">
 		<div class = "icon icon-section-location bottom right"> <!-- spacer --> </div>
 		<div>
 			<hr class  = "bg-2"/>
@@ -501,6 +489,17 @@
 			</div>
 		</div>
 	</div>
+
+
+	<article 
+		class = "screen-only"
+		ng-if = "item.lastEditDate"
+	>		
+		<div> <!-- spacer --> </div>
+		<div>
+				{{'ITEMS.LAST_CHANGE' | translate}}: {{item.lastEditDate | icDate}}			
+		</div>
+	</article>
 
 </section>
 
