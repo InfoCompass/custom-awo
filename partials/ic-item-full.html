@@ -123,13 +123,19 @@
 					[{{'ITEMS.STATE_%s' | fill: item.state | translate}}]
 				</span>
 			</h2>
-			<h3 ng-if = "ic.layout.mode.name != 'XS'">
-				{{ item.brief[ic.site.currentLanguage] }}
-			</h3>
+
 		</div>
 
 		<h3 ng-if = "ic.layout.mode.name == 'XS'">
-				{{ item.brief[ic.site.currentLanguage] }}
+				{{ item.brief[ic.site.currentLanguage] | clearTranslator }}
+
+				<span
+					ng-if	= "item.brief[ic.site.currentLanguage] | autoTranslator"
+					class 	= "bg-2 col-2 white auto-translation-indicator icon-interface-translate_robot_bubble"
+					title	= "{{'INTERFACE.AUTO_TRANSLATED_BY' | translate}} {{item.brief[ic.site.currentLanguage] | autoTranslator}}"
+				>
+					{{item.brief[ic.site.currentLanguage] | autoTranslator}}
+				</span>			
 		</h3>
 
 		<div>
@@ -145,20 +151,42 @@
 			</div>
 
 			<h3 ng-if	= "ic.layout.mode.name != 'XS'">
-				{{ item.brief[ic.site.currentLanguage] }}
+				{{ item.brief[ic.site.currentLanguage] | clearTranslator }}
+
+				<span
+					ng-if	= "item.brief[ic.site.currentLanguage] | autoTranslator"
+					class 	= "bg-2 col-2 white auto-translation-indicator icon-interface-translate_robot_bubble"
+					title	= "{{'INTERFACE.AUTO_TRANSLATED_BY' | translate}} {{item.brief[ic.site.currentLanguage] | autoTranslator}}"
+				>
+					{{item.brief[ic.site.currentLanguage] | autoTranslator}}
+				</span>
+
 			</h3>
 
 			<div 
-				class 			= "screen-only description  highlight-links lang-{{ic.site.currentLanguage}}" 
-				ng-bind-html 	= "item.description[ic.site.currentLanguage] | markdown"
+				class = "screen-only description  highlight-links lang-{{ic.site.currentLanguage}}" 
 			>
+				<span ng-bind-html 	= "item.description[ic.site.currentLanguage] | clearTranslator | markdown"></span>
+
+				<span
+					ng-if	= "item.description[ic.site.currentLanguage] | autoTranslator"
+					class 	= "bg-2 col-2 white auto-translation-indicator icon-interface-translate_robot_bubble"
+					title	= "{{'INTERFACE.AUTO_TRANSLATED_BY' | translate}} {{item.description[ic.site.currentLanguage] | autoTranslator}}"
+				>
+					{{item.description[ic.site.currentLanguage] | autoTranslator}}
+				</span>			
 
 			</div>
 
-			<div 
-				class 			= "print-only description highlight-links lang-{{ic.site.currentLanguage}}" 
-				ng-bind-html 	= "item.description[ic.site.currentLanguage] | markdown"
-			>
+			<div class = "print-only description highlight-links lang-{{ic.site.currentLanguage}}">
+				<span ng-bind-html 	= "item.description[ic.site.currentLanguage] | clearTranslator | markdown"></span>
+				<span
+					ng-if	= "item.description[ic.site.currentLanguage] | autoTranslator"
+					class 	= "bg-2 col-2 white auto-translation-indicator icon-interface-translate_robot_bubble"
+					title	= "{{'INTERFACE.AUTO_TRANSLATED_BY' | translate}} {{item.description[ic.site.currentLanguage] | autoTranslator}}"
+				>
+					{{item.description[ic.site.currentLanguage] | autoTranslator}}
+				</span>		
 			</div>
 
 		</div>
@@ -167,16 +195,6 @@
 
 	</article>
 	<!-- end item title -->
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -271,13 +289,11 @@
 	</div>	
 
 
-
-
 	<ic-item-property
 		ng-if 			= 	"item.location_ref"
 		ic-content		=	"(item.location_ref | icItem).title"
 		ic-content-link	=	"{activeItem: (item.location_ref | icItem) } | icLink"
-		ic-extra-lines	=	"[ (item.location_ref | icItem).brief[ic.site.currentLanguage] ]"
+		ic-extra-lines	=	"[ ((item.location_ref | icItem).brief[ic.site.currentLanguage] | textTranslator)]"
 	>
 	</ic-item-property>
 
