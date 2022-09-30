@@ -44,32 +44,6 @@
 
 	</li>
 
-	<li class = "bg-3">
-
-		<a 
-			ic-touch-me
-			ng-href = "/p/manual"
-		>
-			{{'INTERFACE.MANUAL' | translate}}
-		</a>	
-
-	</li>
-
-	<li 
-		ng-if = "icPlain && ic.layout.fontSizeAdjusted"
-		class = "bg-3"
-	>
-
-		<button 
-			ng-click = "ic.layout.toggleFontSize()"
-			ic-touch-me
-		>
-			{{'INTERFACE.FONT_SIZE' | translate }}
-			<span class	= "icon large icon-interface-font_size white"></span>
-		</button>
-
-	</li>
-
 
 	<li 
 		ng-if = "!ic.user.loggedIn && icPlain"
@@ -83,7 +57,32 @@
 		</a>
 	</li>	
 
-	<!-- <li><a href="#">		{{'INTERFACE.CALENDAR' 		| translate}}</a>	</li> -->
+	<li
+		class				= "bg-3"
+		ic-tab-group		= "{cycle:true}"
+	>
+		<a 
+			class 			= "icon right icon-interface-down white"
+			ng-if			= "!icPlain"
+			tabindex		= "0"
+			href=''
+		>
+			{{'INTERFACE.SERVICE' | translate}}
+		</a>		
+
+		<ul 
+			class	= "bg-0"
+			style	= "{{icPlain ? 'display: block;' : ''}}"
+		>
+			<li 
+				ng-repeat 	= "page in ['manual', 'info_boxes', 'tablet_courses', 'howto_suggestions', 'accessibility', 'accessible_language', 'emergency_numbers', 'feedback']"
+				class 		= "bg-0 hover" 
+			> 
+				<a ic-touch-me a ng-href="/p/{{page}}">	{{'INTERFACE.%s' | fill : page| translate}}</a>	
+			</li>
+		</ul>
+
+	</li>
 
 	<li
 		class				= "bg-3"
@@ -102,10 +101,11 @@
 			class	= "bg-0"
 			style	= "{{icPlain ? 'display: block;' : ''}}"
 		>
+
 			<li 
 				ng-repeat 	= "page in ic.config.pages"
 				class 		= "bg-0 hover" 
-				ng-if 		= "['home', 'tiles', 'tags', 'options', 'manual'].indexOf(page) == -1"
+				ng-if 		= "['home', 'tags', 'tiles', 'manual', 'info_boxes', 'tablet_courses', 'howto_suggestions', 'accessibility', 'accessible_language', 'emergency_numbers', 'feedback', 'legal', 'privacy'].indexOf(page) == -1"
 			> 
 				<a ic-touch-me a ng-href="/p/{{page}}">	{{'INTERFACE.%s' | fill : page| translate}}</a>	
 			</li>
@@ -152,119 +152,9 @@
 	<li 
 		ng-if 			= "ic.user.loggedIn"
 		ic-tab-group	= "{cycle:true}"
+
+		ic-user_menu
+		icPlain 		= "icPlain"
 	>
-		<a 
-			ng-if 		= "!icPlain"
-			class 		= "icon right icon-interface-down white"
-			tabindex	= "0" 
-			ic-touch-me
-		>
-			{{ic.user.displayName}}
-		</a>	
-		<ul 
-			style	= "{{icPlain ? 'display: block;': ''}}"
-			class	= "bg-0"
-		>
-			<li
-				ng-if = "ic.user.can('edit_items')"
-				class = "bg-0 hover"  
-			>
-				<a 
-					href = '/item/new'
-					ic-touch-me
-				>
-					{{ (ic.user.can('edit_items') ? 'INTERFACE.CREATE_NEW_ITEM' :  'INTERFACE.SUGGEST_NEW_ITEM') | translate}}
-				</a>	
-			</li>
-			<li
-				class = "bg-0 hover"  
-			>
-				<button
-					ng-click = "ic.admin.updateTranslations()"
-					ic-touch-me
-				>
-					{{'INTERFACE.UPDATE_TRANSLATIONS' | translate}}
-				</button>	
-			</li>
-
-			<li
-				class = "bg-0 hover"
-				ng-if = "!ic.lists.disabled && ic.user.loggedIn"
-			>
-				<button 
-					ng-click 	= "ic.overlays.toggle('listsMenu')" 
-					title		= "{{'INTERFACE.MANAGE_LISTS' | translate}}"
-				>
-					{{'INTERFACE.MANAGE_LISTS' | translate}}
-				</button>
-			</li>
-
-			<li
-				class = "bg-0 hover"  
-			>
-				<a 
-					href = "/list/u/state_draft"
-					ic-touch-me
-				>
-					<span>{{'INTERFACE.LIST_DRAFT' | translate}}</span>
-					<span class ="bubble shade-light col-1">{{ic.itemStorage.currentStats.totals['state_draft'] || 0}}</span>
-				</a>	
-			</li>
-
-			<li
-				class = "bg-0 hover"  
-			>
-				<a 
-					href = "/list/u/state_suggestion"
-				 	ic-touch-me
-				>
-					<span>{{'INTERFACE.LIST_SUGGESTION' | translate}}</span>
-					<span class ="bubble shade-light col-1">{{ic.itemStorage.currentStats.totals['state_suggestion']|| 0}}</span>
-				</a>	
-			</li>
-
-
-			<li
-				class = "bg-0 hover"  
-			>
-				<a
-					href = "/list/u/state_archived"
-					ic-touch-me
-				>
-					<span>{{'INTERFACE.LIST_ARCHIVED' | translate}}</span>
-					<span class ="bubble shade-light col-1">{{ic.itemStorage.currentStats.totals['state_archived'] || 0}}</span>
-				</a>	
-			</li>
-
-			<li
-				ng-repeat	= "page in ic.config.adminPages"
-				class		= "bg-0 hover"
-			>
-				<a
-					href = "/p/{{page}}"
-					ic-touch-me
-				>
-					<span >
-						{{'INTERFACE.%s' | fill: page | translate}}
-					</span>				
-					<span class = "icon right icon-interface-cogwheel"></span>	
-				</a>	
-			</li>
-
-
-			<li
-				class = "bg-0 hover"  
-			>
-				<button
-					ng-click = "ic.user.logout()"
-					ic-touch-me
-				>
-					{{('INTERFACE.LOGOUT' | translate) + (icPlain ? ': '+ic.user.displayName :'')}}
-				</button>
-			</li>
-
-		</ul>
-	</li>
-
-	
+	</li>	
 </ul>

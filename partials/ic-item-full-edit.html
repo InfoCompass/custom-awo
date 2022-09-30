@@ -116,6 +116,29 @@
 	</article>
 
 
+	<!-- mode -->
+	<article 
+		ng-repeat 	= 	"key in ['mode']"
+	>
+		<div> <!-- spacer --> </div>
+		<div>
+			
+			<h4> {{'ITEMS.%s' | fill : key | translate}}</h4>
+
+			<ic-item-property-edit
+				ic-item						= "icItem"
+				ic-type						= "array"
+				ic-translation-key			= "{{key}}"
+				ic-options					= "ic.taxonomy.tags[key]"
+				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
+				ic-allow-multiple-choices	= "true"
+				ic-key						= "tags"
+			></ic-item-property-edit>
+
+
+		</div>
+	</article>
+
 
 	<!-- brief -->
 	<article>
@@ -252,8 +275,9 @@
 				ic-item						= "icItem"
 				ic-type						= "array"
 				ic-translation-key			= "DISTRICTS"
-				ic-options					= "ic.taxonomy.lor | mapToKey: 'tag' | preventLoop"
+				ic-options					= "ic.taxonomy.lor | mapToKey: 'tag' | add: 'berlin_wide' | preventLoop"
 				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
+				ic-leading-option			= "'berlin_wide'"
 				ic-allow-multiple-choices	= "true"
 				ic-key						= "tags"
 			></ic-item-property-edit>
@@ -331,12 +355,6 @@
 	</article>
 
 
-
-
-
-
-
-
 	<div>
 		<div><div class = "icon icon-property-location"></div></div>
 		<div>
@@ -404,6 +422,22 @@
 			></ic-item-property-edit>
 		</div>
 	</article>
+
+	<!-- directions -->
+	<article ng-if = "!icEdit.location_ref">
+		<div> <!-- spacer --> </div>
+		<div>
+			<h4> {{'ITEMS.DIRECTIONS' | translate}} ({{'LANGUAGES.%s' | fill: ic.site.currentLanguage | translate}})</h4>
+			
+			<ic-item-property-edit
+				ic-item					= "icItem"
+				ic-key					= "directions"
+				ic-type 				= "text"
+				ic-translatable			= "true"
+			></ic-item-property-edit>
+		</div>
+	</article>
+
 
 
 	<div ng-if = "!icEdit.location_ref"><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
@@ -554,7 +588,7 @@
 		ng-repeat 	= 	"(key,value) in ic.taxonomy.tags"
 		ng-if		= 	" 
 								(key != 'lists'  || !ic.config.disableLists) 
-							&&	!['extra', 'accessibility', 'state', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp'].includes(key)
+							&&	!['extra', 'mode', 'accessibility', 'state', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp'].includes(key)
 						"
 	>
 		<div> <!-- spacer --> </div>
@@ -566,7 +600,6 @@
 				ic-message = "{{ 'ITEMS.%s_HELP'|fill:key }}"
 			>
 			</ic-help>
-
 			<ic-item-property-edit
 				ng-if						= "key != 'extra'"
 				ic-item						= "icItem"
@@ -576,6 +609,7 @@
 				ic-option-label				= "'UNSORTED_TAGS.%s' | fill: option | translate"
 				ic-allow-multiple-choices	= "true"
 				ic-key						= "tags"
+				ic-check-none				= "key == 'target_groups' && 'INTERFACE.FOR_ALL'"
 			></ic-item-property-edit>
 
 
@@ -703,7 +737,7 @@
 
 			<button
 				class 		= "active border-3 bg-0 padding"
-				ng-click 	= "validate() ? ic.overlays.open('popup', 'INTERFACE.VALIDATION_SUCESSFUL') : ic.overlays.open('popup', 'INTERFACE.VALIDATION_FAILED')"	 
+				ng-click 	= "validate() ? ic.overlays.open('popup', 'INTERFACE.VALIDATION_SUCCESSFUL') : ic.overlays.open('popup', 'INTERFACE.VALIDATION_FAILED')"	 
 				ic-touch-me
 			>
 				{{"INTERFACE.ITEM_VALIDATE" | translate}}

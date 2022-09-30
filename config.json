@@ -5,12 +5,34 @@
                 "publicItems":          "https://public.seniorennetz.berlin/items",
                 "title":                "Seniorennetz",
                 "disableLists":         true,
-                "languages":            ["de", "en", "tr"],
-                "adminLanguages":       ["de", "en", "tr", "none"],
+                "languages":            ["de", "en", "tr", "ru", "ar"],
+                "adminLanguages":       ["none"],
                 "activeIconColor":      "#373475",
                 "plainIconColor":       "#666666",
-                "pages":                ["home", "tags", "about", "legal", "contact", "tiles", "manual", "accessible_language", "accessibility"],
-                "adminPages":           ["options"],
+                "pages":                [
+                                            "home", 
+                                            "tags", 
+                                            "about", 
+                                            "project_partners",
+                                            "accessibility", 
+                                            "legal", 
+                                            "contact", 
+                                            "tiles", 
+                                            "manual", 
+                                            "accessible_language", 
+                                            "privacy",
+                                            "press",
+                                            "emergency_numbers",
+                                            "feedback",
+                                            "info_boxes",
+                                            "tablet_courses",
+                                            "howto_suggestions"
+                                        ],
+                
+                "adminPages":           [
+                                            "options", 
+                                            "icons"
+                                        ],
                 "map":{
                                 "center":               [52.518611,13.408333],
                                 "zoom":                 10,

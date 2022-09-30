@@ -82,18 +82,6 @@
 		</div>
 	</article>
 
-	<article 
-		class = "screen-only"
-		ng-if = "item.lastEditDate"
-	>		
-		<div> <!-- spacer --> </div>
-		<div>
-				{{'ITEMS.LAST_CHANGE' | translate}}: {{item.lastEditDate | icDate}}			
-		</div>
-	</article>
-
-
-
 	<!-- tags -->
 
 
@@ -243,7 +231,7 @@
 	<!-- languages -->
 
 	<ic-item-property
-		class			= "short"
+		class			= ""
 		ng-if			= "(item.tags | icUnsortedTags : 'languages').length"
 		ic-title 		= "'ITEMS.LANGUAGES' | translate"	
 		ic-content		= "(item.tags | icUnsortedTags : 'languages'  | mapExpression: '\'UNSORTED_TAGS.%s\' | fill: x | translate' : this).join(', ')"
@@ -270,17 +258,9 @@
 	</ic-item-property>
 
 
-	
 
 
-
-
-
-
-
-
-
-	<div>
+	<div ng-if = "item.location_ref || item.address || item.directions[ic.site.currentLanguage] || (item.latitude && item.longitude) ">
 		<div class = "icon icon-section-location bottom right"> <!-- spacer --> </div>
 		<div>
 			<hr class  = "bg-2"/>
@@ -346,6 +326,13 @@
 	</ic-item-property>
 
 
+	<!-- directions -->
+	<ic-item-property		
+		ng-repeat		= 	"projected in [ (item | project : ['directions']) ] | preventLoop"
+		ng-if			=	"projected.directions && projected.directions[ic.site.currentLanguage]"
+		ic-content		= 	"projected.directions[ic.site.currentLanguage]"
+	>
+	</ic-item-property>
 
 	<!-- map links -->
 
@@ -356,6 +343,7 @@
 		ic-title 		= 	"'ITEMS.SHOW_LOCATION_AT' | translate"
 		ic-extra-links	= 	"{
 								'OpenStreetMap' : 	(projected | osmLink),
+								'Google Maps' : 	(projected | gmLink),
 							}"
 	>
 	</ic-item-property>
@@ -481,6 +469,16 @@
 	>
 	</ic-item-property>
 
+	<!-- sponsors -->
+
+	<ic-item-property
+		ng-if			= "item.sponsors"
+		ic-title 		= "'ITEMS.SPONSORS' | translate"
+		ic-content		= "item.sponsors"
+	>
+	</ic-item-property>
+
+
 
 	<div>
 		<div> <!-- spacer --> </div>
@@ -490,7 +488,7 @@
 	</div>	
 
 
-	<div>
+	<div class ="screen-only">
 		<div> <!-- spacer --> </div>
 		<div>
 			<h4 class = "screen-only">{{'INTERFACE.QR_CODE' | translate}}</h4>
@@ -508,15 +506,38 @@
 		</div>
 	</div>
 
+
+	<article 
+		class = "screen-only"
+		ng-if = "item.lastEditDate"
+	>		
+		<div> <!-- spacer --> </div>
+		<div>
+				{{'ITEMS.LAST_CHANGE' | translate}}: {{item.lastEditDate | icDate}}			
+		</div>
+	</article>
+
 </section>
 
 <footer class  = "print-only">
+
 	<div class = "logo">
 		<ic-logo-print></ic-logo-print>
 	</div>
 
 	<div class ="link-to-item print-only">
 		{{item | icItemLink}}
+	</div>
+
+	<div class = "qrcode">
+		<qrcode 
+			version					=	"4" 
+			error-correction-level	=	"M" 
+			size					=	"200" 
+			data					=	"{{item | icItemLink}}"
+			ng-if					=	"item"
+		>
+		</qrcode>
 	</div>
 
 </footer>

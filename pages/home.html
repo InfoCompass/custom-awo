@@ -1,10 +1,10 @@
-<!-- <div 
+<div 
 	class ="ng-hide" 
 	ic-one-time-popup 
 	ic-popup-name		= "popup"
-	ic-popup-id 		= "notice"
-	ic-popup-message	= "'CONTENT.POPUP_NOTICE' | translate | markdown"
-></div> -->
+	ic-popup-id 		= "info-box-tour"
+	ic-popup-message	= "'CONTENT.POPUP_TOUR' | translate | markdown"
+></div>
 
 
 
@@ -14,14 +14,16 @@
 	<!-- <h2> <span class = "bg-0" ng-bind-html = "('INTERFACE.CLAIM' | translate)"></span></h2> -->
 	<ic-carousel
 		ng-if			= "ic.layout.mode.name != 'XS'"
-		ic-images  		= "['image-01', 'image-02', 'image-03', 'image-04']"
+		ic-images  		= "['image-01', 'image-02', 'image-03', 'image-04', 'image-05', 'image-06', 'image-07']"
 		ic-auto-turn	= "20000"
 	>
 	</ic-carousel>
 
 	<a 
-		class 	=	"image image-einfache_sprache"
-		ng-href	= 	"{{ {page:'accessible_language'} | icLink}}"
+		class 		=	"image image-Alpha_Siegel"
+		ng-href		= 	"{{ {page:'accessible_language'} | icLink}}"
+		aria-label	=	"{{'ALT.ALPHA_SIEGEL' | translate}}"
+		title 		=	"{{'ALT.ALPHA_SIEGEL' | translate}}"
 	></a>
 	
 </header>	
@@ -54,8 +56,10 @@
 
 		<div class = "logos">
 			<a 
-				class 	= "image-AWO_Landesverband_b"
-				href	= "https://www.awoberlin.de/" 
+				class 		= "image-AWO_Landesverband_b"
+				href		= "https://www.awoberlin.de/" 
+				aria-label	= "{{'ALT.LOGO_AWO_LANDESVERBAND' | translate}}"
+				title		= "{{'ALT.LOGO_AWO_LANDESVERBAND' | translate}}"
 			>				
 			</a>
 		</div>
@@ -66,8 +70,10 @@
 
 		<div class = "logos">
 			<a 
-				class 	= "image-LOGO_P_Lotto"
-				href	= "http://www.lotto-stiftung-berlin.de/" 
+				class 		= "image-LOGO_P_Lotto"
+				href		= "http://www.lotto-stiftung-berlin.de/" 
+				aria-label	= "{{'ALT.LOGO_LOTTO_STIFTUNG' | translate}}"
+				title		= "{{'ALT.LOGO_LOTTO_STIFTUNG' | translate}}"
 			>
 				
 			</a>				

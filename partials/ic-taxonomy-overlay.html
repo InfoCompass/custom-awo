@@ -1,10 +1,10 @@
-
-
 <button 
-	class 		= "icon icon-interface-close large close"
+	class 		= "icon icon-interface-close right large close"
 	ng-click	= "ic.overlays.toggle()" 
 >
 </button>
+
+
 
 <h2 ng-if = "icExpand == 'categories'">{{'INTERFACE.CATEGORIES' | translate}}</h2>
 
@@ -110,7 +110,7 @@
 		class 		= 	"bg-0 lor selects"
 		ng-if		= 	"icExpand == 'lor'"	
 		ic-watch	= 	"{ 
-							'ic.cite.filterByUnsortedTag':	'
+							'ic.site.filterByUnsortedTag':	'
 								selected = { 
 												dst : (ic.site.filterByUnsortedTag | icDistrict), 
 												pgr : (ic.site.filterByUnsortedTag | icPrognoseraum), 
@@ -125,6 +125,29 @@
 						}"
 >
 
+	<button
+		class 		= "icon icon-interface-checkbox left margin-bot"
+		ic-button	= "{active:ic.filterConfig.unsortedTagActive('berlin_wide'), checked:ic.filterConfig.unsortedTagActive('berlin_wide'), disabled: !ic.itemStorage.currentStats.subMatches['berlin_wide']}"
+		ng-class	= "{active:active, checked:active, disabled: disabled}"
+		ng-click	= "!disabled && ic.filterConfig.toggleUnsortedTag('berlin_wide')" 
+		ic-touch-me	= "true"
+	>
+		<a>{{'UNSORTED_TAGS.BERLIN_WIDE' | translate}} </a>
+		<span 
+			class 		= "bubble shade-light col-1"
+			ng-if 		= "!disabled"
+		>
+			<span>
+				{{ic.itemStorage.currentStats.subMatches['berlin_wide']}}
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches['berlin_wide'] != ic.itemStorage.currentStats.totals['berlin_wide']">
+				/
+			</span>
+			<span ng-if = "ic.itemStorage.currentStats.subMatches['berlin_wide'] != ic.itemStorage.currentStats.totals['berlin_wide']">
+				{{ic.itemStorage.currentStats.totals['berlin_wide']}}
+			</span>
+		</span>
+	</button>
 
 	<label for ="filter-lor-dst">
 		{{'INTERFACE.LOR_DST' | translate}}
@@ -156,7 +179,7 @@
 		</option>
 
 		<option
-			ng-repeat 	= "dst in ic.taxonomy.lor | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+			ng-repeat 	= "dst in ic.taxonomy.lor | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"			
 			value		= "{{dst.tag}}"
 			ng-disabled	= "!ic.itemStorage.currentStats.totals[dst.tag]"
 			ng-selected	= "tag.dst == dst.tag"
@@ -239,7 +262,7 @@
 		</option>
 
 		<option
-			ng-repeat 	= "bzr in selected.pgr.bzr | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+			ng-repeat 	= "bzr in selected.pgr.bzr | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"			
 			value		= "{{bzr.tag}}"
 			ng-disabled	= "!ic.itemStorage.currentStats.totals[bzr.tag]"			
 		>
@@ -253,43 +276,12 @@
 
 </section>
 
-<!-- 
+<div class = "actions">
+	<button 
+		class		= "bg-3 padding"
+		ng-click	= "ic.overlays.toggle()" 
+	>
+		{{'INTERFACE.APPLY_FILTERS' | translate}}
+	</button>
+</div>
 
-<ul 
-		class 		= "bg-0"
-		ng-if		= "icExpand == 'sponsors'"
-	>
-	<li
-		class 		= "icon icon-interface-radio checked"
-		ng-class	= "{'bg-3 white':ic.filterConfig.unsortedTagCleared(ic.taxonomy.tags.sponsors)}"
-		ng-click	= "ic.filterConfig.clearUnsortedTag(ic.taxonomy.tags.sponsors)" 
-		ic-touch-me	= "true"
-	>
-		<a>{{'INTERFACE.FILTER_ANY' |translate}}</a>
-	</li>
-	<li
-		ng-repeat 	= "tag in ic.taxonomy.tags.sponsors | orderBy : ic.utils.evalItems('item.substr(0,4) == \'misc\' ? null :(\'UNSORTED_TAGS.%s\' | fill : item | translate)')"
-		ng-if		= "['senias_partin', 'senias_akrom', 'senias_intlot', 'senias_mifl','ehap']. indexOf(tag) != -1 && (!filter || ('UNSORTED_TAGS.%s' | fill : tag | translate | match : filter[icExpand]))"
-		class		= "icon icon-interface-checkbox"
-		ic-button	= "{active:ic.filterConfig.unsortedTagActive(tag), checked:ic.filterConfig.unsortedTagActive(tag), disabled: !ic.itemStorage.currentStats.subMatches[tag]}"
-		ng-class	= "{active:active, checked:active, disabled: disabled}"
-		ng-click	= "!disabled && ic.filterConfig.toggleUnsortedTag(tag)"
-		ic-touch-me	= "!disabled"
-	>
-		<div>{{'UNSORTED_TAGS.%s' | fill : tag | translate }}</div>
-		<span 
-			class 		= "bubble shade-light col-1"
-			ng-if 		= "!disabled"
-		>
-			<span>
-				{{ic.itemStorage.currentStats.subMatches[tag]}}
-			</span>
-			<span ng-if = "ic.itemStorage.currentStats.subMatches[tag] != ic.itemStorage.currentStats.totals[tag]">
-				/
-			</span>
-			<span ng-if = "ic.itemStorage.currentStats.subMatches[tag] != ic.itemStorage.currentStats.totals[tag]">
-				{{ic.itemStorage.currentStats.totals[tag]}}
-			</span>
-		</span>
-	</li>
-</ul> -->

@@ -45,69 +45,11 @@
 
 </section>
 
-
-
-<section 
-	ng-if = "ic.taxonomy.categories && ic.taxonomy.categories.length > 0"
-	class = "categories" 
+<ic-taxonomy-filter-categories 
+	expanded 				= "true"
+	show-sub-categories 	= "true"
 >
-	<h2>
-		<button
-			class 		= "bg-0 icon"
-			ng-class	= "{'icon-interface-down': expand.categories, 'icon-interface-right': !expand.categories}"
-			ng-click	= "expand.categories = !expand.categories"
-			ic-touch-me	= "true" 
-		>
-			{{'INTERFACE.CATEGORIES' | translate}}
-		</button>
-	</h2>
-
-	<div 
-		class 		= "bg-0"
-		ng-if		= "expand.categories"		
-	>
-		<button
-			ng-if		= "true"
-			class 		= "icon icon-interface-radio"
-			ng-class	= "{'bg-3 white  checked':ic.filterConfig.categoryCleared()}"
-			ng-click	= "ic.filterConfig.clearCategory()" 
-			ic-touch-me	= "true"
-		>
-			<div>{{'INTERFACE.FILTER_ANY' | translate}}</div>
-		</button>
-
-		<button
-			ng-repeat 	= "category in ic.taxonomy.categories"
-			ng-if		= "true"
-			class		= "icon icon-category-{{::category.name}} bg-0"
-			ic-button	= "{active:ic.filterConfig.categoryActive(category.name), disabled: !ic.itemStorage.currentStats.altMatches[category.name]}"
-			ng-class	= "{'bg-3 white':active, disabled: disabled}"
-			ng-click	= "!disabled && ic.filterConfig.toggleCategory(category.name, undefined, true);"
-			ic-touch-me	= "!disabled"
-		>
-			<div>{{'CATEGORIES.%s' | fill : category.name | translate}}</div>
-			<span 
-				class 		= "bubble shade-light "
-				ng-class	= "{'col-2': active, 'col-1': !active}"
-				ng-if 		= "!disabled"
-			>
-				<span>
-					{{ic.itemStorage.currentStats.altMatches[category.name]}}
-				</span>
-				<span ng-if = "ic.itemStorage.currentStats.altMatches[category.name] != ic.itemStorage.currentStats.totals[category.name]">
-					/
-				</span>
-				<span ng-if = "ic.itemStorage.currentStats.altMatches[category.name] != ic.itemStorage.currentStats.totals[category.name]">
-					{{ic.itemStorage.currentStats.totals[category.name]}}
-				</span>
-			</span>
-		</button>
-
-	</div>
-
-</section>
-
-
+</ic-taxonomy-filter-categories>
 
 
 <section
@@ -128,7 +70,7 @@
 <section 
 	class 		= "unsorted"
 	ng-repeat 	= "(key, tagGroup) in ic.taxonomy.tags" 
-	ng-if		= "!['lists', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp'].includes(key)"
+	ng-if		= "!['lists', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp', 'extra'].includes(key)"
 >
 	<button
 		class 		= "bg-0 padding tal"
