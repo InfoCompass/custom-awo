@@ -94,6 +94,24 @@
 	</article>
 
 
+	<!-- titleAddOn -->
+
+	<article>
+		<div> <!-- spacer --> </div>
+		<div>
+			<h4> {{'ITEMS.TITLE_ADD_ON' | translate}}</h4>
+
+			<ic-item-property-edit
+				ic-item					= "icItem"
+				ic-type 				= "string"
+				ic-key					= "titleAddOn"
+				ic-translatable			= "true"				
+			></ic-item-property-edit>
+		</div>
+
+	</article>
+
+
 	<!-- tags/type -->
 	<article>
 		<div> <!-- spacer --> </div>
@@ -468,9 +486,19 @@
 						ic-item					= "icItem"
 					></ic-item-property-edit>
 				</div>
+
 				<button
-					class	 = "border-3 padding full"
-					ng-click = "pickCoordinates()"
+					class	 	= "border-3 padding"
+					ng-click 	= "guessCoordinates(icEdit.city, icEdit.address, icEdit.zip)"
+					title		= "{{'INTERFACE.GUESS_COORDINATES' | translate}}"
+				>
+					{{'INTERFACE.GUESS_COORDINATES' | translate}}
+				</button>
+
+				<button
+					class	 	= "border-3 padding"
+					ng-click	= "pickCoordinates()"
+					title		= "{{'INTERFACE.PICK_COORDINATES' | translate}}"
 				>
 					{{'INTERFACE.PICK_COORDINATES' | translate}}
 				</button>

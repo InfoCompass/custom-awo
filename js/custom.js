@@ -38,3 +38,26 @@ angular.module('icFilters')
 		}
 	}
 ])
+
+.filter('icFullTitle', [
+
+	'icSite',
+
+	(icSite) => {
+
+		return function(item){
+
+			if(!item) return ''
+
+			const title = 	item.title
+			const addOn	= 	item.titleAddOn && item.titleAddOn[icSite.currentLanguage] 							
+
+			if(!title) return ''
+			if(!addOn) return title	
+
+			return title + ' – ' + addOn
+
+		}
+
+	}
+])

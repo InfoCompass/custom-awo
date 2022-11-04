@@ -3,6 +3,7 @@
                 "statsLocation":        "https://stats.seniorennetz.berlin",
                 "frontendLocation":     "https://seniorennetz.berlin",
                 "publicItems":          "https://public.seniorennetz.berlin/items",
+                "publicApi":            "https://public.seniorennetz.berlin",
                 "title":                "Seniorennetz",
                 "disableLists":         true,
                 "languages":            ["de", "en", "tr", "ru", "ar"],
@@ -56,5 +57,10 @@
                 "facebook"  :   true,
                 "whatsapp"  :   true,
                 "telegram"  :   true
-		}               
+		},
+
+        "export":{
+            "properties": ["title", "description", "primaryTopic", "address", "zip", "contact", "email", "phone"],
+            "tagGroups": ["lor_dst", "target_groups", "options_ri", "options_sp"]
+        }        
 }
