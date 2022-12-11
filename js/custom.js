@@ -52,10 +52,9 @@ angular.module('icFilters')
 			const title = 	item.title
 			const addOn	= 	item.titleAddOn && item.titleAddOn[icSite.currentLanguage] 							
 
-			if(!title) return ''
-			if(!addOn) return title	
+			if(addOn) return addOn
 
-			return title + ' – ' + addOn
+			return title
 
 		}
 
