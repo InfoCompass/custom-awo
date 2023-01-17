@@ -94,7 +94,7 @@ ic-taxonomy-overlay > div button div {
 
 ic-taxonomy-overlay ul li .bubble, /* alt */
 ic-taxonomy-overlay > div button .bubble {
-	display:					inline-block;
+	display:					flex;
 	flex:						0 0 auto;
 }
 
