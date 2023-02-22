@@ -287,6 +287,8 @@
 
 	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
 
+	<!-- districts -->
+
 	<article >
 		<div> <!-- spacer --> </div>
 		<div>
@@ -307,6 +309,8 @@
 	</article>
 
 
+	<!-- sub-districts -->
+
 	<article >
 		<div> <!-- spacer --> </div>
 		<div>
@@ -326,6 +330,7 @@
 	</article>
 
 
+	<!-- sub-sub-districts -->
 
 	<article >
 		<div> <!-- spacer --> </div>
@@ -551,6 +556,7 @@
 	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
 
 
+	<!-- accessibility -->
 	
 	<article>
 		<div> <!-- spacer --> </div>
@@ -586,7 +592,7 @@
 	<div><div> <!-- spacer --> </div><hr class  = "bg-2"/></div>
 
 
-
+	<!-- opening-hours, costs, ... -->
 	<!-- translatable free text -->
 	<article ng-repeat = "key in ['hours', 'charge', 'venue']">
 		<div> <!-- spacer --> </div>
@@ -619,7 +625,7 @@
 		ng-repeat 	= 	"(key,value) in ic.taxonomy.tags"
 		ng-if		= 	" 
 								(key != 'lists'  || !ic.config.disableLists) 
-							&&	!['extra', 'mode', 'accessibility', 'state', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp'].includes(key)
+							&&	!['extra', 'mode', 'accessibility', 'state', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp', 'default_languages', 'languages'].includes(key)
 						"
 	>
 		<div> <!-- spacer --> </div>
@@ -627,7 +633,7 @@
 			<h4> {{'ITEMS.%s' | fill : key | translate}}</h4>
 
 			<ic-help 
-				ng-if = "['target_groups', 'districts', 'languages'].indexOf(key) != -1"
+				ng-if = "['target_groups', 'districts'].indexOf(key) != -1"
 				ic-message = "{{ 'ITEMS.%s_HELP'|fill:key }}"
 			>
 			</ic-help>
@@ -645,6 +651,39 @@
 
 
 		</div>
+	</article>
+
+	
+	<!-- languages -->
+	<article 
+	    ng-repeat   =   "(key,value) in ic.taxonomy.tags"
+	    ng-if   =   "showAllLanguages ?  key == 'languages' : key == 'default_languages'"
+	  >
+	    <div> <!-- spacer --> </div>
+	    <div>
+	      <h4> {{'ITEMS.%s' | fill : key | translate}}</h4>
+
+
+	      <ic-item-property-edit
+	        ng-if           = "key != 'extra'"
+	        ic-item           = "icItem"
+	        ic-type           = "array"
+	        ic-translation-key      = "{{key}}"
+	        ic-options          = "ic.taxonomy.tags[key]"
+	        ic-option-label       = "'UNSORTED_TAGS.%s' | fill: option | translate"
+	        ic-allow-multiple-choices = "true"
+	        ic-key            = "tags"
+	        ic-check-none       = "key == 'target_groups' && 'INTERFACE.FOR_ALL'"
+	      ></ic-item-property-edit>
+	      
+	      <button
+	    		class 		= "active border-0 bg-0 padding"
+	     		ng-click = "toggleLanguageSelect()"
+	    	>
+	         {{showAllLanguages == true ? 'ITEMS.SHOW_LESS_LANGUAGES' : 'ITEMS.SHOW_MORE_LANGUAGES' | translate}}
+	    	</button>
+
+	    </div>
 	</article>
 
 

@@ -218,6 +218,14 @@
 		],
 
 		
+		default_languages: [
+			'arabic', 			//	Arabisch
+			'english', 			//	Englisch
+			'french', 			//	Französisch
+			'russian', 			//	Russisch
+			'turkish', 			//	Türkisch
+		],
+
 		languages: [
 			'albanian', 		//	Albanisch
 			'amharic', 			//	Amharisch
