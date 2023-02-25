@@ -40,7 +40,7 @@
 
 </section>
 
-<ic-taxonomy-filter-categories 
+<ic-taxonomy-filter-categories
 	expanded 				= "true"
 	show-sub-categories 	= "true"
 >
@@ -65,7 +65,7 @@
 <section 
 	class 		= "unsorted"
 	ng-repeat 	= "(key, tagGroup) in ic.taxonomy.tags" 
-	ng-if		= "!['lists', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp', 'extra'].includes(key)"
+	ng-if		= "!['lists', 'lor_dst', 'lor_pgr', 'lor_bzr', 'options_ri', 'options_sp', 'extra', 'default_languages'].includes(key)"
 >
 	<button
 		class 		= "bg-0 padding tal"
