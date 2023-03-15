@@ -119,7 +119,7 @@
 
 	<!-- titleAddOn -->
 
-	<article>
+	<article ng-if = "ic.user.can('edit_items')">
 		<div> <!-- spacer --> </div>
 		<div>
 			<h4> {{'ITEMS.TITLE_ADD_ON' | translate}} ({{'LANGUAGES.%s' | fill: ic.site.currentLanguage | translate}})</h4>

@@ -42,17 +42,20 @@ angular.module('icFilters')
 .filter('icFullTitle', [
 
 	'icSite',
+	'clearTranslatorFilter',
 
-	(icSite) => {
+	(icSite, clearTranslatorFilter) => {
 
 		return function(item){
 
 			if(!item) return ''
 
-			const title = 	item.title
-			const addOn	= 	item.titleAddOn && item.titleAddOn[icSite.currentLanguage] 							
 
-			if(addOn) return addOn
+			const title 		= 	item.title
+			const addOn			= 	item.titleAddOn && clearTranslatorFilter(item.titleAddOn[icSite.currentLanguage])
+			const notGerman 	= 	icSite.currentLanguage != 'de'
+
+			if(addOn && notGerman) return addOn
 
 			return title
 
