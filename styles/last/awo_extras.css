@@ -198,3 +198,8 @@ ic-item-property .title {
 .portrait-melanie {
 	background-image: 		url('/assets/melanie.jpg')
 }
+
+.hr-no-header {
+	margin-top:					1rem;
+	margin-bottom:				0;
+}

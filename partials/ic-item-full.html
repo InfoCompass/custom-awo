@@ -430,10 +430,10 @@
 
 
 
-	<div>
+	<div ng-if = "(item.tags | icUnsortedTags : 'institution_type').length > 0  || item.responsibleInstitution || item.sponsors">
 		<div> <!-- spacer --> </div>
 		<div>
-			<hr class  = "bg-2"/>			
+			<hr class  = "hr-no-header bg-2"/>			
 		</div>
 	</div>	
 
