@@ -37,10 +37,12 @@ ic-taxonomy-overlay {
 }
 
 ic-taxonomy-overlay h2 {
-	display:					block;
-	margin:						0 auto;
-	margin-bottom:				1rem;
-	text-align:					center;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	text-align: center;
+	width: auto!important;
+	max-width: 90%;
 }
 
 
