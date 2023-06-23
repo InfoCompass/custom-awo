@@ -203,3 +203,65 @@ ic-item-property .title {
 	margin-top:					1rem;
 	margin-bottom:				0;
 }
+
+.districts-wrapper {
+	display: flex;
+	flex-direction: column;
+	max-width: 80rem;
+}
+
+.cards-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.card {
+	float: left;
+  width: 400px;             
+  display: flex;            
+  flex-direction: column;   
+  border: 1px solid #D7D7E4;    
+  overflow: hidden;
+  margin: 0 20px 20px 0;
+  font-size: 1.3rem;
+}
+
+.card-header {
+  color: #373475;
+  font-weight: normal;
+  line-height: 1.2;
+  background-color: #D7D7E4;
+  padding: 8px 10px 5px;
+}
+
+.card-main {
+  display: flex;          
+  flex-direction: row-reverse; 
+  justify-content: space-between;
+  padding: 5px 10px;
+  color: #373475; 
+  font-weight: lighter;
+}
+
+.card-bg-dark {
+	color: white;
+	background-color: #373475;
+}
+
+.card-image {
+  align-self: flex-end;
+}
+
+.card-text {
+	max-width: 50%;
+	align-self: flex-end;
+}
+
+ .box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .box>* {
+        flex: 1 1 160px;
+    }
