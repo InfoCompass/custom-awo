@@ -10,14 +10,16 @@
 
     <div class="cards-wrapper">
       <a 
-        ng-href   = "{{'list/u/berlin_wide'}}"      
+        ng-href   = "{{'list'}}"      
       >
 
         <div class="card">
           <div class="card-header card-bg-dark">Berlin</div>
           <div class="card-main card-bg-dark">
             <img class="card-image" src="{{'../images/large/district-berlin.svg' }}">
-            <div class="card-text">{{ic.itemStorage.currentStats.totals['berlin_wide'] || 0}} {{'INTERFACE.ANGEBOTE' | translate}}</div>
+            <div class="card-text">
+              {{ ic | allDistrictsTotal }} {{'INTERFACE.ANGEBOTE' | translate}}
+            </div>
           </div>
         </div>
       </a>
