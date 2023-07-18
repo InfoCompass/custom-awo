@@ -1,68 +1,69 @@
 {
-                "backendLocation":      "https://api.seniorennetz.berlin",
-                "statsLocation":        "https://stats.seniorennetz.berlin",
-                "frontendLocation":     "https://seniorennetz.berlin",
-                "publicItems":          "https://public.seniorennetz.berlin/items",
-                "publicApi":            "https://public.seniorennetz.berlin",
-                "title":                "Seniorennetz",
-                "disableLists":         true,
-                "languages":            ["de", "en", "tr", "ru", "ar"],
-                "adminLanguages":       ["none"],
-                "activeIconColor":      "#373475",
-                "plainIconColor":       "#666666",
-                "pages":                [
-                                            "home", 
-                                            "tags", 
-                                            "about",
-                                            "volunteers", 
-                                            "project_partners",
-                                            "accessibility", 
-                                            "legal", 
-                                            "contact", 
-                                            "tiles", 
-                                            "manual", 
-                                            "accessible_language", 
-                                            "privacy",
-                                            "press",
-                                            "emergency_numbers",
-                                            "feedback",
-                                            "info_boxes",
-                                            "tablet_courses",
-                                            "howto_suggestions",
-                                            "polizei"
-                                        ],
-                
-                "adminPages":           [
-                                            "options", 
-                                            "icons"
-                                        ],
-                "map":{
-                                "center":               [52.518611,13.408333],
-                                "zoom":                 10,
-                                "minZoom":              11,
-                                "maxZoom":              18,
-                                "maxBounds":            [[52.8,13.8],[52.2,13]],
-                                "maxClusterRadius":     60,
+		"backendLocation":      "https://api.seniorennetz.berlin",
+		"statsLocation":        "https://stats.seniorennetz.berlin",
+		"frontendLocation":     "https://seniorennetz.berlin",
+		"publicItems":          "https://public.seniorennetz.berlin/items",
+		"publicApi":            "https://public.seniorennetz.berlin",
+		"title":                "Seniorennetz",
+		"disableLists":         true,
+		"languages":            ["de", "en", "tr", "ru", "ar"],
+		"adminLanguages":       ["none"],
+		"activeIconColor":      "#373475",
+		"plainIconColor":       "#666666",
+		"tilesUrl":				"https://api.seniorennetz.berlin/tiles",
+		"pages":                [
+									"home", 
+									"tags", 
+									"about",
+									"volunteers", 
+									"project_partners",
+									"accessibility", 
+									"legal", 
+									"contact", 
+									"tiles", 
+									"manual", 
+									"accessible_language", 
+									"privacy",
+									"press",
+									"emergency_numbers",
+									"feedback",
+									"info_boxes",
+									"tablet_courses",
+									"howto_suggestions",
+									"polizei"
+								],
+		
+		"adminPages":           [
+									"options", 
+									"icons"
+								],
+		"map":					{
+										"center":				[52.518611,13.408333],
+										"zoom":					10,
+										"minZoom":				11,
+										"maxZoom":				18,
+										"maxBounds":			[[52.8,13.8],[52.2,13]],
+										"maxClusterRadius":		60,
 
-				"tiles":		"https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicmhvdGVwIiwiYSI6ImNqMGRib2dmYTAwMGEzMnBkNDBuZ2dqMHMifQ.LNUbADugC76iQ91I73xFwg",
-                                "consent":              {
-                                                                "server":       "mapbox.com, USA",
-                                                                "default":      true
-                                                        }
+										"tiles":				"https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicmhvdGVwIiwiYSI6ImNqMGRib2dmYTAwMGEzMnBkNDBuZ2dqMHMifQ.LNUbADugC76iQ91I73xFwg",
+										"consent":{
+											"server":			"mapbox.com, USA",
+											"default":			true
+										}
 
-		},
-		"sharing": {
-				"twitter": {
-						"hashtag": "seniorennetz-berlin"
-				},
-				"email": true,
-                "facebook"  :   true,
-                "whatsapp"  :   true,
-                "telegram"  :   true
-		},
+								},
+	"sharing": {
+			"twitter": {
+					"hashtag": "seniorennetz-berlin"
+			},
+			"email": true,
+			"facebook"  :   true,
+			"whatsapp"  :   true,
+			"telegram"  :   true
+	},
 
-        "export":{
-            "properties": ["title", "description", "primaryTopic", "address", "zip", "contact", "email", "phone"],
-            "tagGroups": ["lor_dst", "target_groups", "options_ri", "options_sp"]
-        }        
+	"export":{
+		"properties": ["title", "description", "primaryTopic", "address", "zip", "contact", "email", "phone"],
+		"tagGroups": ["lor_dst", "target_groups", "options_ri", "options_sp"]
+	}
 }
