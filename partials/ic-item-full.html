@@ -87,7 +87,7 @@
 
 	<article class = "screen-only">
 		<div><!-- spacer --></div>
-		<ic-taxonomy-tag-list ic-tags = "item.tags"></ic-tag-list>
+		<ic-taxonomy-tag-list ic-tags = "item.primaryTopic"></ic-tag-list>
 	</article>
 
 
@@ -255,6 +255,7 @@
 		</div>
 	</div>	
 
+	<!-- link to references item -->
 
 	<ic-item-property
 		ng-if 			= 	"item.location_ref"
@@ -429,10 +430,10 @@
 
 
 
-	<div>
+	<div ng-if = "(item.tags | icUnsortedTags : 'institution_type').length > 0  || item.responsibleInstitution || item.sponsors">
 		<div> <!-- spacer --> </div>
 		<div>
-			<hr class  = "bg-2"/>			
+			<hr class  = "hr-no-header bg-2"/>			
 		</div>
 	</div>	
 
@@ -465,14 +466,22 @@
 	>
 	</ic-item-property>
 
-
-
 	<div>
 		<div> <!-- spacer --> </div>
 		<div>
-			<hr class  = "bg-2"/>			
+			<hr class  = "bg-2"/>
+			<h4 class = "screen-only">{{'ITEMS.TAGS_FOOTER_NOTE' | translate}}</h4>
 		</div>
-	</div>	
+	</div>
+
+
+	<article 
+		class = "screen-only"
+		ng-if = "item.tags.length > 0"
+	>
+		<div><!-- spacer --></div>
+		<ic-taxonomy-tag-list ic-tags = "item.tags"></ic-tag-list>
+	</article>	
 
 
 	<div class ="screen-only">

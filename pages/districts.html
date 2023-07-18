@@ -1,0 +1,44 @@
+<article>
+  
+  
+  
+  <div class="districts-wrapper">
+    <h1>{{'INTERFACE.DIST_PAGE_HEADER' | translate}}</h1>
+
+    <p>{{'INTERFACE.DIST_PAGE_DESCRIPTION' | translate}}</p>
+
+
+    <div class="cards-wrapper">
+      <a 
+        ng-href   = "{{'list'}}"      
+      >
+
+        <div class="card">
+          <div class="card-header card-bg-dark">Berlin</div>
+          <div class="card-main card-bg-dark">
+            <img class="card-image" src="{{'../images/large/district-berlin.svg' }}">
+            <div class="card-text">
+              {{ ic | allDistrictsTotal }} {{'INTERFACE.ANGEBOTE' | translate}}
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a
+        ng-repeat   = "dist in ic.taxonomy.lor | orderBy : ic.utils.evalItems('\'UNSORTED_TAGS.LOR_%s\' | fill : item.name | translate')"
+        ng-href   = "{{'/list/u/' + dist.tag}}"      
+      >
+
+        <div class="card">
+          <div class="card-header">{{dist.name}}</div>
+          <div class="card-main">
+            <img class="card-image" src="{{'../images/large/district-' + dist.tag + '.svg' }}">
+            <div class="card-text">{{ic.itemStorage.currentStats.totals[dist.tag] || 0}} {{'INTERFACE.ANGEBOTE' | translate}}</div>
+          </div>
+        </div>
+        
+      </a>
+    </div>
+  </div>
+
+</article>
