@@ -43,6 +43,15 @@
 						'arts_choir', 		// Singen und Chor
 						'arts_handicrafts',	// Handarbeit !!
 						'arts_cosmetic',	// Kosmetik
+						'arts_theater',		//	Theater
+						'arts_music',		//	Musik
+						'arts_dancetypes',		//	Tanzarten
+						'arts_paint_draw_print',		//	Malen/Zeichnen/Drucken
+						'arts_crafts',		//	Kunsthandwerk
+						'arts_sew',		//	Nähen
+						'arts_photo_film_media',		//	Foto, Film, Medien
+						'arts_writing',		//	Schreiben
+						'arts_cultural_art',		//	Kunst/Kulturgeschichte
 						'arts_misc'			// Andere künstlerische Angebote
 					]
 		},
@@ -73,7 +82,10 @@
 						'exercise_self_help',		// Selbsthilfegruppen
 						'exercise_memory',			// Gedächtnistraining
 						'exercise_parcours',		// Aktivplätze und Bewegungsparcours
-						'exercise_fall_prevention'	// Sturzprävention
+						'exercise_fall_prevention',	// Sturzprävention
+						'exercise_health', 		// Gesundheitsangebote
+						'exercise_relax', 		// Entspannung
+						'exercise_nutri_cook', 		// Ernährung, Kochen
 
 					]
 		},
@@ -84,7 +96,10 @@
 			tags:	[
 						'intercultural_language_course',	// Sprachkurse
 						'intercultural_language_specific', 	// Sprachspezifische Angebote
-						'intercultural_encounters'			// Interkulturelle Treffen
+						'intercultural_encounters',			// Interkulturelle Treffen
+						'intercultural_deaf',		//	Gebärdensprache
+						'intercultural_de_foreign',		//	Deutsch als Fremdsprache
+						'intercultural_de_light',		//	Deutsch Leichte Sprache
 
 					],
 		},
@@ -113,7 +128,9 @@
 						'support_repairs',				// Reparaturhilfe
 						'support_helpline', 			// Telefonseelsorge
 						'support_public_restrooms',		// Öffentliche Toiletten
-						'support_mobility'				// Mobilitätshilfedienste
+						'support_mobility',				// Mobilitätshilfedienste
+						'support_volunter',				//	Ehrenamt und Freiwilligenarbeit
+						'support_food',				//	Lebensmittel retten
 					]
 		},
 
@@ -129,7 +146,11 @@
 						'counseling_pension',	// Rentenberatung
 						'counseling_police',	// Polizeiberatung
 						'counseling_volunteers',// Ehrenamtsberatung !!
-						'counseling_legal'		// Rechtsberatung !!
+						'counseling_legal',		// Rechtsberatung !!
+						'counseling_energy', 		//	Energieberatung
+						'counseling_care', 		//	Vorsorge treffen
+						'counseling_consumer', 		//	Verbraucherfragen
+						'counseling_phone', 		//	Telefonische Beratungsstellen
 					]
 		},
 
@@ -162,6 +183,26 @@
 						'housing_smart',		// Smart Wohnen
 						'housing_project'		// Wohnprojekte
 
+			]
+		},
+
+		
+		{
+			name: 'education',
+			colors: ['#25D1A0'],
+			tags: 	[
+						'ecucation_environ_political',			 // Umwelt- und Politische Bildung
+						'ecucation_cultural',			 // Kulturelle Bildung
+						'ecucation_basic',			 // Grundbildung
+						'ecucation_health',			 // Gesundheitsbildung
+						'ecucation_history',			 // Geschichte
+						'ecucation_psychology',			 // Psychologie
+						'ecucation_philosophy',			 // Philosophie
+						'ecucation_geo',			 // Erdkunde
+						'ecucation_natural',			 // Naturwissenschaften
+						'ecucation_eco_legal',			 // Wirtschaft und Recht
+						'ecucation_edu',			 // Erziehung
+						'ecucation_traffic',			 // Verkehrsbildung
 			]
 		},
 
