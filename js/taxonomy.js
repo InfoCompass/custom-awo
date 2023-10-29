@@ -331,7 +331,9 @@
 			'family_center',			//Familienzentrum
 			'counseling_center',		//Beratungsstelle
 			'neighborhood_center',		//Nachbarschaftstreff
-			'misc_institution' 			//andere
+			'misc_institution', 			//andere
+			'library',
+			'volkshochschule'
 		],
 
 		extra: [
