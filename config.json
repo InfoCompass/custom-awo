@@ -6,8 +6,6 @@
 		"publicApi":            "https://public.seniorennetz.berlin",
 		"title":                "Seniorennetz",
 		"disableLists":         true,
-		"tilesUrl":             "https://api.seniorennetz.berlin/tiles",
-
 		"languages":            ["de", "en", "tr", "ru", "ar"],
 		"adminLanguages":       ["none"],
 		"activeIconColor":      "#373475",
