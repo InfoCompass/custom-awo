@@ -136,7 +136,7 @@ ic-page #sponsors {
 
 ic-page #sponsors > *{
 	flex:						0 0 auto;	
-	width:						15rem;
+	width:						20rem;
 	max-width:					100%;
 }
 
