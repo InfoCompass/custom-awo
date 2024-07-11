@@ -191,18 +191,18 @@
 			name: 'education',
 			colors: ['#25D1A0'],
 			tags: 	[
-						'ecucation_environ_political',			 // Umwelt- und Politische Bildung
-						'ecucation_cultural',			 // Kulturelle Bildung
-						'ecucation_basic',			 // Grundbildung
-						'ecucation_health',			 // Gesundheitsbildung
-						'ecucation_history',			 // Geschichte
-						'ecucation_psychology',			 // Psychologie
-						'ecucation_philosophy',			 // Philosophie
-						'ecucation_geo',			 // Erdkunde
-						'ecucation_natural',			 // Naturwissenschaften
-						'ecucation_eco_legal',			 // Wirtschaft und Recht
-						'ecucation_edu',			 // Erziehung
-						'ecucation_traffic',			 // Verkehrsbildung
+						'education_environ_political',	 // Umwelt- und Politische Bildung
+						'education_cultural',			 // Kulturelle Bildung
+						'education_basic',				 // Grundbildung
+						'education_health',				 // Gesundheitsbildung
+						'education_history',			 // Geschichte
+						'education_psychology',			 // Psychologie
+						'education_philosophy',			 // Philosophie
+						'education_geo',				 // Erdkunde
+						'education_natural',			 // Naturwissenschaften
+						'education_eco_legal',			 // Wirtschaft und Recht
+						'education_edu',				 // Erziehung
+						'education_traffic',			 // Verkehrsbildung
 			]
 		},
 
